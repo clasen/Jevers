@@ -91,6 +91,41 @@ test('mix flags add OpenRouter routes or replace the native one', () => {
     assert.equal(pinned.routes[0].model, 'jev-1.13.0');
 });
 
+test('chain attaches shortcuts in fallback order, like the fluent methods', () => {
+    const routes = jevers => jevers.routes.map(r => `${r.provider.id}:${r.model}`);
+    const chained = Jevers.new({ mix: { openrouter: true } }).chain('jev', 'd1', 'glide');
+    const fluent = Jevers.new({ mix: { openrouter: true } }).jev().d1().glide();
+    assert.deepEqual(routes(chained), routes(fluent));
+    assert.equal(chained.routes[0].provider.id, 'typesafe');
+});
+
+test('chain rejects anything but known shortcut names', () => {
+    assert.throws(() => Jevers.new().chain(), /at least one model shortcut/);
+    for (const name of ['gpt', 'toString', 42, { name: 'jev' }]) {
+        assert.throws(() => Jevers.new().chain('jev', name), JeversError);
+    }
+});
+
+test('chain reports every missing API key at once and attaches nothing', () => {
+    const saved = { typesafe: process.env.TYPESAFE_API_KEY, liquid: process.env.LIQUID_API_KEY };
+    delete process.env.TYPESAFE_API_KEY;
+    delete process.env.LIQUID_API_KEY;
+    const jevers = Jevers.new();
+    try {
+        assert.throws(() => jevers.chain('glide', 'jev', 'd1'), err =>
+            err instanceof MissingApiKeyError
+            && err.missing.map(m => m.env).join() === 'TYPESAFE_API_KEY,LIQUID_API_KEY');
+        assert.equal(jevers.routes.length, 0);
+    } finally {
+        process.env.TYPESAFE_API_KEY = saved.typesafe;
+        process.env.LIQUID_API_KEY = saved.liquid;
+    }
+});
+
+test('chain rejects a shortcut that mix flags leave without routes', () => {
+    assert.throws(() => Jevers.new({ mix: { fastino: false } }).chain('jev', 'glide'), /"glide" resolved to no routes/);
+});
+
 test('provider options override environment keys', async () => {
     const calls = stubFetch(choiceOk);
     await ask(Jevers.new({ providers: { typesafe: { apiKey: 'explicit' } } }).jev()).decide();

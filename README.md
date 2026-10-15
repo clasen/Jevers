@@ -80,6 +80,15 @@ Kev 27B has no hosted route; serve it locally and attach it with `.local({ url, 
 
 Models are tried in the order you attach them. Retryable statuses (408, 425, 429, 5xx) are retried on the same model with exponential backoff, honoring `Retry-After`; any other failure moves to the next model. If all fail, `decide()` throws an `AggregateError` with each `ProviderError`.
 
+`chain()` attaches the same order from shortcut names, which helps when the list comes from configuration:
+
+```js
+Jevers.new().chain('jev', 'd1', 'glide');                // same as .jev().d1().glide()
+Jevers.new().chain(...process.env.DECISION_MODELS.split(','));
+```
+
+Unknown names throw before anything is attached, and missing API keys for every model in the chain are reported in one `MissingApiKeyError`. Use the fluent methods when a model needs options such as a pinned `model` or a per-call `mix`, and `.local()` for a local server.
+
 `mix` flags add or swap routes for the same model:
 
 ```js

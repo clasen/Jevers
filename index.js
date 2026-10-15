@@ -42,6 +42,18 @@ export class Jevers {
         return this;
     }
 
+    /** Attach shortcuts in fallback order: chain('jev', 'd1') is .jev().d1(). */
+    chain(...names) {
+        if (!names.length) throw new JeversError('chain() needs at least one model shortcut');
+        const routes = names.map(name => {
+            if (!Object.hasOwn(SHORTCUTS, name)) throw new JeversError(`Unknown model shortcut "${String(name)}" in chain()`);
+            const resolved = resolveShortcut(name, {}, this.mix, this.providers);
+            if (!resolved.length) throw new JeversError(`Model shortcut "${name}" resolved to no routes; check your mix flags`);
+            return resolved;
+        });
+        return this._attach(routes.flat());
+    }
+
     /** plugin: { name, execute(context, next) }, run in registration order around decide(). */
     use(plugin) {
         if (typeof plugin?.name !== 'string' || !plugin.name) throw new JeversError('A plugin needs a name');
