@@ -1,10 +1,10 @@
 # ⚖️ Jevers
 
-Decision models don't write text. You give them some context and a question with fixed options, and they return a probability for each option. Jevers is a Node client for these models: attach one or more of them, add text, JSON, images or audio, ask `choice`, yes/no (`noul`) or `score` questions, and get back answers in one shape no matter which provider replied.
+Decision models take some context and a question with fixed options, and return a probability for each option. Jevers is a Node client for them. You attach one or more models, add text, JSON, images or audio, ask `choice`, yes/no (`noul`) or `score` questions, and get the answers back in one shape whichever provider replied.
 
-It fits the steps of an app that are judgment calls with a known set of outcomes: routing a ticket, screening a message before an LLM sees it, deciding what an agent can drop from its context. You get a distribution, so the threshold is yours to set. If a provider is down or rate limited, the next model you attached answers instead.
+Use it where your app makes a call with a known set of outcomes, like routing a support ticket or checking a message before it reaches an LLM. Since you get a distribution and not only a label, you pick the threshold. If a provider is down or rate limited, the next model you attached answers.
 
-Supported: TypeSafe **Jev**, Liquid **d1**, Perplexity **pplx-decider**, Fastino **GLiDE**, Microsoft **Decision-1** (Azure AI Foundry), OpenAI **Decisions** (`gpt-6-luna`), Cloudflare **Clef**, **Kev** and other OpenRouter routes, and a local **llama-server** running d1.
+Supported: TypeSafe Jev, Liquid d1, Perplexity pplx-decider, Fastino GLiDE, Microsoft Decision-1 (Azure AI Foundry), OpenAI Decisions (`gpt-6-luna`), Cloudflare Clef, Kev and other OpenRouter routes, and a local llama-server running d1.
 
 Zero dependencies. Node 20+.
 
@@ -46,11 +46,11 @@ const result = await Jevers.new()
 }
 ```
 
-The answer shape is the same whichever provider responded:
+Fields per answer type:
 
 | Type | Fields |
 |---|---|
-| `noul` | `noul` (probability of yes, 0–1), `confidence` |
+| `noul` | `noul` (probability of yes, 0 to 1), `confidence` |
 | `choice` | `choice`, `probabilities` (option → p), `confidence` |
 | `score` | `score` (probability-weighted level, 0…n−1), `legend` (index → level), `probabilities` (index → p), `confidence` |
 | `refusal` | the model declined this question (OpenAI only) |
@@ -161,7 +161,7 @@ const { answers } = await Jevers.new()
 if (answers.verdict.probabilities.safe < 0.9) return refuse(answers.verdict.choice);
 ```
 
-The check reads `probabilities.safe` instead of `choice`. A message that comes out 0.55 safe and 0.45 injection wins as `safe` on the label, but it should probably not reach the model.
+The check uses `probabilities.safe`. A message scored 0.55 safe and 0.45 injection still comes back with `choice: 'safe'`, and you probably don't want it reaching the model.
 
 ### Decide what an agent keeps when it compacts its context
 
@@ -184,7 +184,7 @@ const actions = decisions.map(d => d.answers.action.choice);
 
 Each message costs one short call. Only the ones marked `summarize` need a generative model afterwards.
 
-### Act on a level, not on the label
+### Act on score levels
 
 ```js
 const { answers: { severity } } = await Jevers.new()
@@ -197,7 +197,7 @@ if (severity.probabilities[2] > 0.5) pageOnCall(ticket);   // more likely blocke
 else if (severity.score > 1) prioritize(ticket);             // leaning past degraded
 ```
 
-`score` is the probability-weighted level, so 1.4 means the model put real mass on both `degraded` and `blocked`. `probabilities` is indexed by level position.
+`score` is the probability-weighted level: 1.4 means the model split its probability between `degraded` and `blocked`. `probabilities` is indexed by level position.
 
 ### Time limits and failures
 
@@ -225,7 +225,7 @@ try {
 }
 ```
 
-The signal covers the whole chain, retries included. An abort is rethrown as is and does not move on to the next model.
+The signal covers the whole chain, retries included. When it aborts, `decide()` rethrows the abort error and stops there.
 
 ### A local model, with audio
 
@@ -260,7 +260,7 @@ await Jevers.new().use(timing).jev().glide().addText(text).noul('spam', 'Is this
 
 ## Benchmark
 
-The benchmark plugin runs one request on several decision models and grades each answer against a known correct one. Use it to see, on your own inputs, which model answers correctly, how much probability it puts on the right answer, and how long it takes.
+The benchmark plugin runs one request on several decision models and grades each answer against a known correct one, so you can compare models on your own inputs before picking one.
 
 ```js
 import { Jevers } from 'jevers';
@@ -296,7 +296,7 @@ const { models, categories } = summarize(cases);
 console.table(models);
 ```
 
-`meanProbability` is worth reading next to `accuracy`. Two models with the same accuracy can differ a lot in how much probability they put on the right answer, and that difference decides where your thresholds can sit.
+Read `meanProbability` next to `accuracy`. Two models can get the same answers right while one gives them 0.95 and the other 0.6, and a threshold like the 0.9 in the screening example only works with the first.
 
 ### Included scenarios
 
@@ -358,15 +358,15 @@ Accuracy by category:
 | safety | 100% | 100% | 100% | 100% |
 | categorization | 100% | 100% | 100% | 100% |
 
-What the run shows:
+Notes on the run:
 
-- Spam, safety, compaction and categorization came out at 100% for all four models. The differences are in the games and the images.
+- All four models got every spam, safety, compaction and categorization case right. They differed only on the games and the driving images.
 - All four missed `quoridor-must-block`: with the opponent one step from its goal row, each one picked `move e3` instead of the wall at `d1h` that blocks it.
 - `d1`, `jev` and `luna` all found the back-rank mate but called the position `equal` instead of `White is winning`.
 - `d1` and `luna` steered right on the left curve, with 0.39 and 0.44 on `left`.
 - Jev was attached text-only in this run, so the five driving scenarios were skipped and its accuracy covers 21 questions.
 
-These are small numbers. In chess one question moves the score by 25 points, and latency was measured from a single machine over the public internet. Treat the table as a starting point and run the suite, or your own cases, before choosing a model.
+The sample is small: in chess one question moves the score by 25 points. Latency was measured from one machine over the public internet.
 
 ## Demos
 
