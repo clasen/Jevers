@@ -1,0 +1,70 @@
+{
+  "name": "jevers",
+  "version": "0.1.0",
+  "description": "⚖️ Jevers - Chainable decision models (Jev, d1, pplx-decider, GLiDE, Decision-1, OpenAI Decisions) with fallback and multimodal input.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./plugins/benchmark": "./plugins/benchmark/index.js"
+  },
+  "files": [
+    "index.js",
+    "lib/",
+    "plugins/"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clasen/Jevers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/clasen/Jevers/issues"
+  },
+  "homepage": "https://github.com/clasen/Jevers#readme",
+  "author": "Martin Clasen",
+  "license": "MIT",
+  "keywords": [
+    "decision",
+    "decision-model",
+    "classification",
+    "classifier",
+    "routing",
+    "probabilities",
+    "calibrated",
+    "yes-no",
+    "choice",
+    "score",
+    "benchmark",
+    "jev",
+    "typesafe",
+    "system-one",
+    "liquid",
+    "d1",
+    "perplexity",
+    "pplx-decider",
+    "fastino",
+    "glide",
+    "decision-1",
+    "microsoft",
+    "azure",
+    "azure-ai-foundry",
+    "openai",
+    "openai-decisions",
+    "gpt-6-luna",
+    "openrouter",
+    "llama-server",
+    "multimodal",
+    "image",
+    "audio",
+    "fallback",
+    "zero-dependency",
+    "clasen"
+  ],
+  "packageManager": "pnpm@11.9.0"
+}

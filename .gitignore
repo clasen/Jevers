@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+/.pnpm-store/
+
+# Logs
+*.log
+.pnpm-debug.log*
+
+# Output of 'npm pack'
+*.tgz
+
+# dotenv environment variable files
+.env
+.env.*
+
+# OS files
+.DS_Store
