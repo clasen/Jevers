@@ -96,6 +96,7 @@ test('benchmark skips models that cannot see the input and records failures', as
 test('benchmark validates models, keys and expected answers before calling any model', async () => {
     const calls = stubFetch();
     assert.throws(() => benchmark({ models: ['nope'], expected: { spam: true } }), /Unknown model shortcut/);
+    assert.throws(() => benchmark({ models: ['toString'], expected: { spam: true } }), /Unknown model shortcut/);
     assert.throws(() => benchmark({ models: ['jev'] }), /expected answers/);
     await assert.rejects(spamCase(Jevers.new().use(benchmark({ models: ['jev'], expected: { verdict: 'junk' } }))).decide(), /not valid for choice/);
     await assert.rejects(spamCase(Jevers.new().use(benchmark({ models: ['jev'], expected: { other: true } }))).decide(), /unknown question/);

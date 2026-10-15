@@ -30,7 +30,7 @@ export function benchmark({ models, expected } = {}) {
 
 function toParticipant(model) {
     if (typeof model === 'string') {
-        if (!SHORTCUTS[model]) throw new JeversError(`Unknown model shortcut "${model}"`);
+        if (!Object.hasOwn(SHORTCUTS, model)) throw new JeversError(`Unknown model shortcut "${model}"`);
         return { name: model, attach: jevers => jevers[model]() };
     }
     if (typeof model?.name !== 'string' || typeof model.attach !== 'function') {
