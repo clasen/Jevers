@@ -12,6 +12,11 @@ Zero dependencies. Node 20+.
 pnpm add jevers
 ```
 
+> **AI Skills**: You can also add Jevers as skills for AI agentic development. `jevers` covers integration; `jevers-benchmark` covers comparing models with the benchmark plugin:
+> ```bash
+> npx skills add https://github.com/clasen/Jevers --skill jevers --skill jevers-benchmark
+> ```
+
 ## Usage
 
 ```js
