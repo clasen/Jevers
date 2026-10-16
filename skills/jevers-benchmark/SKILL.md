@@ -67,7 +67,7 @@ Labeled data the user already has (tickets with the team that handled them, mode
 
 ## Included scenarios
 
-`scenarios` is a suite of 25 problems with one defensible answer each, in categories `quoridor`, `chess`, `tic-tac-toe`, `driving` (synthetic images), `compaction`, `spam`, `safety` and `categorization`. Each is `{ id, category, build(jevers), expected }`:
+`scenarios` is a suite of 39 problems with one defensible answer each, in categories `quoridor`, `chess`, `tic-tac-toe`, `driving` (synthetic images), `compaction`, `spam`, `safety` and `categorization`. Each is `{ id, category, build(jevers), expected }`:
 
 ```js
 import { benchmark, scenarios, summarize } from 'jevers/plugins/benchmark';

@@ -305,18 +305,18 @@ Read `meanProbability` next to `accuracy`. Two models can get the same answers r
 
 ### Included scenarios
 
-`scenarios` is a suite of 25 problems with one defensible answer each:
+`scenarios` is a suite of 39 problems with one defensible answer each. Tic-tac-toe, compaction, spam, safety and categorization mix easy cases with harder ones built around a distractor, such as a phishing email with no link or a sarcastic review that hands out "five stars":
 
 | Category | Cases | What it asks |
 |---|---|---|
 | `quoridor` | 3 | Pick the winning step, the wall that stops the opponent, the way around a wall |
 | `chess` | 3 | Mate in one (back rank, Scholar's mate), take a hanging queen; one case also asks who is winning |
-| `tic-tac-toe` | 1 | Complete the line |
+| `tic-tac-toe` | 3 | Complete the line, block the opponent, play the fork that forces a win |
 | `driving` | 5 | Steer from a windshield image through left and right curves and a straight road; stop or go at a traffic light |
-| `compaction` | 3 | Keep, summarize or drop a message from an agent's context |
-| `spam` | 3 | Ham, spam or phishing |
-| `safety` | 3 | Safe request, prompt injection, harmful request |
-| `categorization` | 4 | Support ticket team, headline section, review sentiment on a 5-level score |
+| `compaction` | 5 | Keep, summarize or drop a message from an agent's context, including a constraint inside small talk and a failure buried in a test log |
+| `spam` | 6 | Ham, spam or phishing, including a CEO gift-card scam, an opted-in newsletter and an urgent but genuine invoice |
+| `safety` | 6 | Safe request, prompt injection, harmful request, including an injection hidden in a pasted email, a stalkerware check and a harmful ask framed as fiction |
+| `categorization` | 8 | Support ticket team, headline section, review sentiment on a 5-level score, each with a case whose keywords point to the wrong answer |
 
 The driving images are drawn synthetically in `scenes.js`, so text-only models are skipped there. Each scenario is `{ id, category, build(jevers), expected }`, so the suite runs with the same plugin:
 
@@ -341,7 +341,7 @@ node demo/benchmark.js jev d1 decider --category chess,driving --out report.json
 
 ### Results from 14 October 2026
 
-One run of the suite (25 scenarios, 26 graded questions). The full report is in [`demo/results/benchmark-2026-10-14.json`](demo/results/benchmark-2026-10-14.json).
+One run of the suite as it was then (25 scenarios, 26 graded questions), before the harder cases were added. The full report is in [`demo/results/benchmark-2026-10-14.json`](demo/results/benchmark-2026-10-14.json).
 
 | Model | Correct | Mean p(expected) | Answered | Mean latency |
 |---|---|---|---|---|
