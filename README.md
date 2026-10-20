@@ -117,7 +117,7 @@ const result = await Jevers.new()
 
 Models that can't take the input's modalities are skipped. If none can, `decide()` throws `UnsupportedInputError`. Images are always sent as base64 (no provider fetches remote URLs), placed where each API expects them. Formats: PNG, JPEG, WebP, GIF, and WAV for audio (`addAudio`, local d1-omni only).
 
-TypeSafe images are a preview feature: Jevers sends the `TypeSafe-Danger-Zone-Images: true` header, lists each image once under `assets` and puts its reference in `state` where the image was added. TypeSafe takes only PNG or JPEG, 256 to 1568 px per side, and never resizes; anything else fails that model and moves to the next one.
+TypeSafe images are a preview feature: Jevers sends the `TypeSafe-Danger-Zone-Images: true` header, lists each image once under `assets` and puts its reference in `state` where the image was added. TypeSafe takes only PNG or JPEG, 280 to 1568 px per side, and never resizes; anything else fails that model and moves to the next one.
 
 Clef takes up to 4 PNG, JPEG or WebP images, sent top-level as data URLs.
 

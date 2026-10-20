@@ -81,7 +81,7 @@ An answer of `{ type: 'refusal' }` means the model declined that question (OpenA
 - `.addImage(src)`: file path, Buffer, data URL or http(s) URL. Always sent as base64. PNG, JPEG, WebP, GIF.
 - `.addAudio(src)`: WAV, local d1-omni only.
 
-Models that cannot take the input's modalities are skipped. If none can, `decide()` throws `UnsupportedInputError`. TypeSafe images take only PNG or JPEG, 256–1568 px per side; anything else fails that model and moves to the next.
+Models that cannot take the input's modalities are skipped. If none can, `decide()` throws `UnsupportedInputError`. TypeSafe images take only PNG or JPEG, 280–1568 px per side; anything else fails that model and moves to the next.
 
 ## Models
 

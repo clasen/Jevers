@@ -2,11 +2,11 @@ import { deflateSync } from 'node:zlib';
 
 /** Synthetic driver's-view images for the vision scenarios, drawn as PNG without dependencies. */
 
-/** Scenes are drawn in a 320×200 space and scaled into the PNG, which fits TypeSafe's 256–1568 px per side. */
+/** Scenes are drawn in a 320×200 space and scaled into the PNG, which fits TypeSafe's 280–1568 px per side. */
 const SCENE_WIDTH = 320;
 const SCENE_HEIGHT = 200;
 const WIDTH = 400;
-const HEIGHT = 256;
+const HEIGHT = 280;
 const HORIZON = 80;
 
 const SKY = [135, 190, 235];
