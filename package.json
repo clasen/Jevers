@@ -1,6 +1,6 @@
 {
   "name": "jevers",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "⚖️ Jevers - Chainable decision models (Jev, d1, pplx-decider, GLiDE, Decision-1, OpenAI Decisions) with fallback and multimodal input.",
   "type": "module",
   "main": "index.js",
