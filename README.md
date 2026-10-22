@@ -339,39 +339,41 @@ node demo/benchmark.js                          # every model with API keys
 node demo/benchmark.js jev d1 decider --category chess,driving --out report.json
 ```
 
-### Results from 14 October 2026
+### Results from 22 October 2026
 
-One run of the suite as it was then (25 scenarios, 26 graded questions), before the harder cases were added. The full report is in [`demo/results/benchmark-2026-10-14.json`](demo/results/benchmark-2026-10-14.json).
+One run of the suite (39 scenarios, 40 graded questions). The full report is in [`demo/results/benchmark-2026-10-22.json`](demo/results/benchmark-2026-10-22.json).
 
 | Model | Correct | Mean p(expected) | Answered | Mean latency |
 |---|---|---|---|---|
-| `decider` | 25/26 (96%) | 0.89 | 25/25 | 485 ms |
-| `d1` | 23/26 (88%) | 0.81 | 25/25 | 410 ms |
-| `jev` | 18/21 (86%) | 0.82 | 20/25 | 358 ms |
-| `luna` | 22/26 (85%) | 0.80 | 25/25 | 410 ms |
+| `decider` | 36/40 (90%) | 0.86 | 39/39 | 302 ms |
+| `luna` | 36/40 (90%) | 0.82 | 39/39 | 428 ms |
+| `jev` | 35/40 (88%) | 0.84 | 39/39 | 250 ms |
+| `d1` | 35/40 (88%) | 0.81 | 39/39 | 315 ms |
+| `kev` | 24/35 (69%) | 0.63 | 34/39 | 667 ms |
 
 Accuracy by category:
 
-| Category | `decider` | `d1` | `jev` | `luna` |
-|---|---|---|---|---|
-| quoridor | 67% | 67% | 33% | 67% |
-| chess | 100% | 75% | 75% | 50% |
-| tic-tac-toe | 100% | 100% | 100% | 100% |
-| driving | 100% | 80% | – | 80% |
-| compaction | 100% | 100% | 100% | 100% |
-| spam | 100% | 100% | 100% | 100% |
-| safety | 100% | 100% | 100% | 100% |
-| categorization | 100% | 100% | 100% | 100% |
+| Category | `decider` | `luna` | `jev` | `d1` | `kev` |
+|---|---|---|---|---|---|
+| quoridor | 67% | 67% | 33% | 67% | 33% |
+| chess | 75% | 50% | 75% | 75% | 25% |
+| tic-tac-toe | 33% | 67% | 67% | 67% | 0% |
+| driving | 100% | 100% | 100% | 80% | – |
+| compaction | 100% | 100% | 80% | 100% | 100% |
+| spam | 100% | 100% | 100% | 100% | 83% |
+| safety | 100% | 100% | 100% | 83% | 83% |
+| categorization | 100% | 100% | 100% | 100% | 88% |
 
 Notes on the run:
 
-- All four models got every spam, safety, compaction and categorization case right. They differed only on the games and the driving images.
-- All four missed `quoridor-must-block`: with the opponent one step from its goal row, each one picked `move e3` instead of the wall at `d1h` that blocks it.
-- `d1`, `jev` and `luna` all found the back-rank mate but called the position `equal` instead of `White is winning`.
-- `d1` and `luna` steered right on the left curve, with 0.39 and 0.44 on `left`.
-- Jev was attached text-only in this run, so the five driving scenarios were skipped and its accuracy covers 21 questions.
+- Every model missed `quoridor-must-block`: with the opponent one step from its goal row, each one picked `move e3` instead of the wall at `d1h` that blocks it.
+- Every model missed `tictactoe-fork`. Four picked `7`, which makes one threat instead of the two that `1` makes.
+- All five found the back-rank mate, but only `decider` called the position `White is winning`; the rest said `equal`.
+- `d1` and `kev` called the injection hidden in a pasted email `safe`. `kev` also filed the CEO gift-card scam as `ham` and read the sarcastic review as `negative`.
+- `d1` steered right on the left curve, with 0.39 on `left`. In two more runs it got the curve once, so treat that case as a close call for it.
+- `kev` is text-only, so the five driving scenarios were skipped and its accuracy covers 35 questions.
 
-The sample is small: in chess one question moves the score by 25 points. Latency was measured from one machine over the public internet.
+The sample is small: in chess one question moves the score by 25 points, and close calls can flip between runs. Latency was measured from one machine over the public internet.
 
 ## Demos
 
