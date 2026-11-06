@@ -2,12 +2,29 @@
   "models": [
     "jev",
     "d1",
+    "d1Ultra",
     "decider",
     "luna",
     "kev"
   ],
   "summary": {
     "models": [
+      {
+        "model": "d1Ultra",
+        "cases": 39,
+        "answered": 39,
+        "skipped": 0,
+        "errors": 0,
+        "questions": 40,
+        "correct": 38,
+        "accuracy": 0.95,
+        "meanProbability": 0.8693495410751366,
+        "meanLatencyMs": 400,
+        "tokens": {
+          "input": 7462,
+          "output": 0
+        }
+      },
       {
         "model": "decider",
         "cases": 39,
@@ -17,11 +34,27 @@
         "questions": 40,
         "correct": 36,
         "accuracy": 0.9,
-        "meanProbability": 0.8633242860376626,
-        "meanLatencyMs": 302,
+        "meanProbability": 0.8603305303485129,
+        "meanLatencyMs": 407,
         "tokens": {
           "input": 8918,
           "output": 40
+        }
+      },
+      {
+        "model": "jev",
+        "cases": 39,
+        "answered": 39,
+        "skipped": 0,
+        "errors": 0,
+        "questions": 40,
+        "correct": 36,
+        "accuracy": 0.9,
+        "meanProbability": 0.8412499999999999,
+        "meanLatencyMs": 230,
+        "tokens": {
+          "input": 18919,
+          "output": 1681
         }
       },
       {
@@ -34,26 +67,10 @@
         "correct": 36,
         "accuracy": 0.9,
         "meanProbability": 0.8152500000000001,
-        "meanLatencyMs": 428,
+        "meanLatencyMs": 416,
         "tokens": {
           "input": 9915,
           "output": 0
-        }
-      },
-      {
-        "model": "jev",
-        "cases": 39,
-        "answered": 39,
-        "skipped": 0,
-        "errors": 0,
-        "questions": 40,
-        "correct": 35,
-        "accuracy": 0.875,
-        "meanProbability": 0.8437499999999998,
-        "meanLatencyMs": 250,
-        "tokens": {
-          "input": 18916,
-          "output": 1679
         }
       },
       {
@@ -65,8 +82,8 @@
         "questions": 40,
         "correct": 35,
         "accuracy": 0.875,
-        "meanProbability": 0.805219616337992,
-        "meanLatencyMs": 315,
+        "meanProbability": 0.7997493819601348,
+        "meanLatencyMs": 326,
         "tokens": {
           "input": 7462,
           "output": 0
@@ -81,11 +98,11 @@
         "questions": 35,
         "correct": 24,
         "accuracy": 0.6857142857142857,
-        "meanProbability": 0.6294600000000001,
-        "meanLatencyMs": 667,
+        "meanProbability": 0.6289371428571429,
+        "meanLatencyMs": 741,
         "tokens": {
           "input": 5625,
-          "output": 2631
+          "output": 2640
         }
       }
     ],
@@ -100,11 +117,27 @@
           "questions": 3,
           "correct": 2,
           "accuracy": 0.6666666666666666,
-          "meanProbability": 0.7756190920789611,
-          "meanLatencyMs": 398,
+          "meanProbability": 0.7743925199114639,
+          "meanLatencyMs": 366,
           "tokens": {
             "input": 798,
             "output": 3
+          }
+        },
+        {
+          "model": "d1Ultra",
+          "cases": 3,
+          "answered": 3,
+          "skipped": 0,
+          "errors": 0,
+          "questions": 3,
+          "correct": 2,
+          "accuracy": 0.6666666666666666,
+          "meanProbability": 0.6552783943110382,
+          "meanLatencyMs": 528,
+          "tokens": {
+            "input": 712,
+            "output": 0
           }
         },
         {
@@ -116,8 +149,8 @@
           "questions": 3,
           "correct": 2,
           "accuracy": 0.6666666666666666,
-          "meanProbability": 0.628612710793185,
-          "meanLatencyMs": 412,
+          "meanProbability": 0.6342800936204349,
+          "meanLatencyMs": 402,
           "tokens": {
             "input": 712,
             "output": 0
@@ -133,7 +166,7 @@
           "correct": 2,
           "accuracy": 0.6666666666666666,
           "meanProbability": 0.5666666666666667,
-          "meanLatencyMs": 822,
+          "meanLatencyMs": 741,
           "tokens": {
             "input": 833,
             "output": 0
@@ -148,8 +181,8 @@
           "questions": 3,
           "correct": 1,
           "accuracy": 0.3333333333333333,
-          "meanProbability": 0.5066666666666667,
-          "meanLatencyMs": 303,
+          "meanProbability": 0.49333333333333335,
+          "meanLatencyMs": 277,
           "tokens": {
             "input": 1562,
             "output": 159
@@ -164,17 +197,17 @@
           "questions": 3,
           "correct": 1,
           "accuracy": 0.3333333333333333,
-          "meanProbability": 0.3935666666666666,
-          "meanLatencyMs": 1182,
+          "meanProbability": 0.3894,
+          "meanLatencyMs": 1106,
           "tokens": {
             "input": 602,
-            "output": 241
+            "output": 240
           }
         }
       ],
       "chess": [
         {
-          "model": "decider",
+          "model": "d1Ultra",
           "cases": 3,
           "answered": 3,
           "skipped": 0,
@@ -182,11 +215,11 @@
           "questions": 4,
           "correct": 3,
           "accuracy": 0.75,
-          "meanProbability": 0.5632178031624232,
-          "meanLatencyMs": 260,
+          "meanProbability": 0.6831788461983546,
+          "meanLatencyMs": 483,
           "tokens": {
-            "input": 524,
-            "output": 4
+            "input": 402,
+            "output": 0
           }
         },
         {
@@ -198,11 +231,27 @@
           "questions": 4,
           "correct": 3,
           "accuracy": 0.75,
-          "meanProbability": 0.5571031095975385,
-          "meanLatencyMs": 438,
+          "meanProbability": 0.5693732753840939,
+          "meanLatencyMs": 300,
           "tokens": {
             "input": 402,
             "output": 0
+          }
+        },
+        {
+          "model": "decider",
+          "cases": 3,
+          "answered": 3,
+          "skipped": 0,
+          "errors": 0,
+          "questions": 4,
+          "correct": 3,
+          "accuracy": 0.75,
+          "meanProbability": 0.531864033949679,
+          "meanLatencyMs": 421,
+          "tokens": {
+            "input": 524,
+            "output": 4
           }
         },
         {
@@ -214,8 +263,8 @@
           "questions": 4,
           "correct": 3,
           "accuracy": 0.75,
-          "meanProbability": 0.515,
-          "meanLatencyMs": 237,
+          "meanProbability": 0.505,
+          "meanLatencyMs": 259,
           "tokens": {
             "input": 1173,
             "output": 174
@@ -231,7 +280,7 @@
           "correct": 2,
           "accuracy": 0.5,
           "meanProbability": 0.39749999999999996,
-          "meanLatencyMs": 485,
+          "meanLatencyMs": 343,
           "tokens": {
             "input": 686,
             "output": 0
@@ -246,15 +295,47 @@
           "questions": 4,
           "correct": 1,
           "accuracy": 0.25,
-          "meanProbability": 0.288275,
-          "meanLatencyMs": 612,
+          "meanProbability": 0.287575,
+          "meanLatencyMs": 677,
           "tokens": {
             "input": 317,
-            "output": 336
+            "output": 337
           }
         }
       ],
       "tic-tac-toe": [
+        {
+          "model": "d1Ultra",
+          "cases": 3,
+          "answered": 3,
+          "skipped": 0,
+          "errors": 0,
+          "questions": 3,
+          "correct": 3,
+          "accuracy": 1,
+          "meanProbability": 0.5827951459357119,
+          "meanLatencyMs": 348,
+          "tokens": {
+            "input": 283,
+            "output": 0
+          }
+        },
+        {
+          "model": "d1",
+          "cases": 3,
+          "answered": 3,
+          "skipped": 0,
+          "errors": 0,
+          "questions": 3,
+          "correct": 3,
+          "accuracy": 1,
+          "meanProbability": 0.5144850458579103,
+          "meanLatencyMs": 280,
+          "tokens": {
+            "input": 283,
+            "output": 0
+          }
+        },
         {
           "model": "jev",
           "cases": 3,
@@ -264,8 +345,8 @@
           "questions": 3,
           "correct": 2,
           "accuracy": 0.6666666666666666,
-          "meanProbability": 0.5933333333333334,
-          "meanLatencyMs": 257,
+          "meanProbability": 0.5700000000000001,
+          "meanLatencyMs": 207,
           "tokens": {
             "input": 1045,
             "output": 135
@@ -281,25 +362,9 @@
           "correct": 2,
           "accuracy": 0.6666666666666666,
           "meanProbability": 0.5566666666666666,
-          "meanLatencyMs": 311,
+          "meanLatencyMs": 466,
           "tokens": {
             "input": 502,
-            "output": 0
-          }
-        },
-        {
-          "model": "d1",
-          "cases": 3,
-          "answered": 3,
-          "skipped": 0,
-          "errors": 0,
-          "questions": 3,
-          "correct": 2,
-          "accuracy": 0.6666666666666666,
-          "meanProbability": 0.5008191512935768,
-          "meanLatencyMs": 267,
-          "tokens": {
-            "input": 283,
             "output": 0
           }
         },
@@ -312,8 +377,8 @@
           "questions": 3,
           "correct": 1,
           "accuracy": 0.3333333333333333,
-          "meanProbability": 0.41430310421333605,
-          "meanLatencyMs": 231,
+          "meanProbability": 0.4143046645038681,
+          "meanLatencyMs": 602,
           "tokens": {
             "input": 418,
             "output": 3
@@ -328,11 +393,11 @@
           "questions": 3,
           "correct": 0,
           "accuracy": 0,
-          "meanProbability": 0.23876666666666668,
-          "meanLatencyMs": 610,
+          "meanProbability": 0.2383666666666667,
+          "meanLatencyMs": 702,
           "tokens": {
             "input": 211,
-            "output": 218
+            "output": 222
           }
         }
       ],
@@ -346,8 +411,8 @@
           "questions": 5,
           "correct": 5,
           "accuracy": 1,
-          "meanProbability": 0.9670728178659616,
-          "meanLatencyMs": 483,
+          "meanProbability": 0.9702294579741387,
+          "meanLatencyMs": 401,
           "tokens": {
             "input": 1084,
             "output": 5
@@ -362,11 +427,27 @@
           "questions": 5,
           "correct": 5,
           "accuracy": 1,
-          "meanProbability": 0.9460000000000001,
-          "meanLatencyMs": 255,
+          "meanProbability": 0.9399999999999998,
+          "meanLatencyMs": 245,
           "tokens": {
-            "input": 3210,
+            "input": 3213,
             "output": 157
+          }
+        },
+        {
+          "model": "d1Ultra",
+          "cases": 5,
+          "answered": 5,
+          "skipped": 0,
+          "errors": 0,
+          "questions": 5,
+          "correct": 5,
+          "accuracy": 1,
+          "meanProbability": 0.9172387712795211,
+          "meanLatencyMs": 439,
+          "tokens": {
+            "input": 1174,
+            "output": 0
           }
         },
         {
@@ -379,7 +460,7 @@
           "correct": 5,
           "accuracy": 1,
           "meanProbability": 0.852,
-          "meanLatencyMs": 472,
+          "meanLatencyMs": 466,
           "tokens": {
             "input": 1340,
             "output": 0
@@ -394,8 +475,8 @@
           "questions": 5,
           "correct": 4,
           "accuracy": 0.8,
-          "meanProbability": 0.8329572746119165,
-          "meanLatencyMs": 276,
+          "meanProbability": 0.8090895778303857,
+          "meanLatencyMs": 358,
           "tokens": {
             "input": 1174,
             "output": 0
@@ -420,6 +501,22 @@
       ],
       "compaction": [
         {
+          "model": "d1Ultra",
+          "cases": 5,
+          "answered": 5,
+          "skipped": 0,
+          "errors": 0,
+          "questions": 5,
+          "correct": 5,
+          "accuracy": 1,
+          "meanProbability": 0.9191237779744175,
+          "meanLatencyMs": 502,
+          "tokens": {
+            "input": 2746,
+            "output": 0
+          }
+        },
+        {
           "model": "decider",
           "cases": 5,
           "answered": 5,
@@ -428,8 +525,8 @@
           "questions": 5,
           "correct": 5,
           "accuracy": 1,
-          "meanProbability": 0.8934337234879335,
-          "meanLatencyMs": 303,
+          "meanProbability": 0.8941402769423854,
+          "meanLatencyMs": 357,
           "tokens": {
             "input": 3025,
             "output": 5
@@ -445,14 +542,14 @@
           "correct": 5,
           "accuracy": 1,
           "meanProbability": 0.7959999999999999,
-          "meanLatencyMs": 397,
+          "meanLatencyMs": 336,
           "tokens": {
             "input": 2926,
             "output": 0
           }
         },
         {
-          "model": "d1",
+          "model": "jev",
           "cases": 5,
           "answered": 5,
           "skipped": 0,
@@ -460,11 +557,11 @@
           "questions": 5,
           "correct": 5,
           "accuracy": 1,
-          "meanProbability": 0.7833740821682055,
-          "meanLatencyMs": 279,
+          "meanProbability": 0.788,
+          "meanLatencyMs": 224,
           "tokens": {
-            "input": 2746,
-            "output": 0
+            "input": 4188,
+            "output": 204
           }
         },
         {
@@ -476,15 +573,15 @@
           "questions": 5,
           "correct": 5,
           "accuracy": 1,
-          "meanProbability": 0.5736999999999999,
-          "meanLatencyMs": 688,
+          "meanProbability": 0.5741999999999999,
+          "meanLatencyMs": 911,
           "tokens": {
             "input": 2694,
             "output": 325
           }
         },
         {
-          "model": "jev",
+          "model": "d1",
           "cases": 5,
           "answered": 5,
           "skipped": 0,
@@ -492,15 +589,31 @@
           "questions": 5,
           "correct": 4,
           "accuracy": 0.8,
-          "meanProbability": 0.774,
-          "meanLatencyMs": 248,
+          "meanProbability": 0.7370591949616141,
+          "meanLatencyMs": 308,
           "tokens": {
-            "input": 4188,
-            "output": 202
+            "input": 2746,
+            "output": 0
           }
         }
       ],
       "spam": [
+        {
+          "model": "d1Ultra",
+          "cases": 6,
+          "answered": 6,
+          "skipped": 0,
+          "errors": 0,
+          "questions": 6,
+          "correct": 6,
+          "accuracy": 1,
+          "meanProbability": 0.988568816465427,
+          "meanLatencyMs": 329,
+          "tokens": {
+            "input": 826,
+            "output": 0
+          }
+        },
         {
           "model": "luna",
           "cases": 6,
@@ -511,7 +624,7 @@
           "correct": 6,
           "accuracy": 1,
           "meanProbability": 0.9833333333333334,
-          "meanLatencyMs": 417,
+          "meanLatencyMs": 366,
           "tokens": {
             "input": 1263,
             "output": 0
@@ -526,8 +639,8 @@
           "questions": 6,
           "correct": 6,
           "accuracy": 1,
-          "meanProbability": 0.9742232949724955,
-          "meanLatencyMs": 245,
+          "meanProbability": 0.9743625888042543,
+          "meanLatencyMs": 431,
           "tokens": {
             "input": 1099,
             "output": 6
@@ -542,8 +655,8 @@
           "questions": 6,
           "correct": 6,
           "accuracy": 1,
-          "meanProbability": 0.9700000000000001,
-          "meanLatencyMs": 248,
+          "meanProbability": 0.9733333333333333,
+          "meanLatencyMs": 216,
           "tokens": {
             "input": 2518,
             "output": 250
@@ -558,8 +671,8 @@
           "questions": 6,
           "correct": 6,
           "accuracy": 1,
-          "meanProbability": 0.9612293464674746,
-          "meanLatencyMs": 293,
+          "meanProbability": 0.9490589474370587,
+          "meanLatencyMs": 303,
           "tokens": {
             "input": 826,
             "output": 0
@@ -574,11 +687,11 @@
           "questions": 6,
           "correct": 5,
           "accuracy": 0.8333333333333334,
-          "meanProbability": 0.7474666666666666,
-          "meanLatencyMs": 604,
+          "meanProbability": 0.74735,
+          "meanLatencyMs": 611,
           "tokens": {
             "input": 721,
-            "output": 390
+            "output": 389
           }
         }
       ],
@@ -593,7 +706,7 @@
           "correct": 6,
           "accuracy": 1,
           "meanProbability": 1,
-          "meanLatencyMs": 235,
+          "meanLatencyMs": 215,
           "tokens": {
             "input": 2369,
             "output": 266
@@ -608,11 +721,27 @@
           "questions": 6,
           "correct": 6,
           "accuracy": 1,
-          "meanProbability": 0.9878105872662815,
-          "meanLatencyMs": 270,
+          "meanProbability": 0.9879171401786033,
+          "meanLatencyMs": 370,
           "tokens": {
             "input": 959,
             "output": 6
+          }
+        },
+        {
+          "model": "d1Ultra",
+          "cases": 6,
+          "answered": 6,
+          "skipped": 0,
+          "errors": 0,
+          "questions": 6,
+          "correct": 6,
+          "accuracy": 1,
+          "meanProbability": 0.9730275461203028,
+          "meanLatencyMs": 331,
+          "tokens": {
+            "input": 666,
+            "output": 0
           }
         },
         {
@@ -625,7 +754,7 @@
           "correct": 6,
           "accuracy": 1,
           "meanProbability": 0.965,
-          "meanLatencyMs": 370,
+          "meanLatencyMs": 376,
           "tokens": {
             "input": 1131,
             "output": 0
@@ -640,8 +769,8 @@
           "questions": 6,
           "correct": 5,
           "accuracy": 0.8333333333333334,
-          "meanProbability": 0.9052793329844988,
-          "meanLatencyMs": 295,
+          "meanProbability": 0.9024900544456878,
+          "meanLatencyMs": 298,
           "tokens": {
             "input": 666,
             "output": 0
@@ -656,11 +785,11 @@
           "questions": 6,
           "correct": 5,
           "accuracy": 0.8333333333333334,
-          "meanProbability": 0.8189666666666667,
-          "meanLatencyMs": 599,
+          "meanProbability": 0.8177333333333334,
+          "meanLatencyMs": 746,
           "tokens": {
             "input": 587,
-            "output": 409
+            "output": 412
           }
         }
       ],
@@ -674,8 +803,8 @@
           "questions": 8,
           "correct": 8,
           "accuracy": 1,
-          "meanProbability": 0.9962500000000001,
-          "meanLatencyMs": 241,
+          "meanProbability": 0.995,
+          "meanLatencyMs": 228,
           "tokens": {
             "input": 2851,
             "output": 336
@@ -691,7 +820,7 @@
           "correct": 8,
           "accuracy": 1,
           "meanProbability": 0.965,
-          "meanLatencyMs": 346,
+          "meanLatencyMs": 392,
           "tokens": {
             "input": 1234,
             "output": 0
@@ -706,8 +835,8 @@
           "questions": 8,
           "correct": 8,
           "accuracy": 1,
-          "meanProbability": 0.9544497049722223,
-          "meanLatencyMs": 259,
+          "meanProbability": 0.9530183095520065,
+          "meanLatencyMs": 391,
           "tokens": {
             "input": 1011,
             "output": 8
@@ -722,8 +851,24 @@
           "questions": 8,
           "correct": 8,
           "accuracy": 1,
-          "meanProbability": 0.9139209710320984,
-          "meanLatencyMs": 328,
+          "meanProbability": 0.9282686103971874,
+          "meanLatencyMs": 356,
+          "tokens": {
+            "input": 653,
+            "output": 0
+          }
+        },
+        {
+          "model": "d1Ultra",
+          "cases": 8,
+          "answered": 8,
+          "skipped": 0,
+          "errors": 0,
+          "questions": 8,
+          "correct": 8,
+          "accuracy": 1,
+          "meanProbability": 0.9219568394609635,
+          "meanLatencyMs": 356,
           "tokens": {
             "input": 653,
             "output": 0
@@ -738,11 +883,11 @@
           "questions": 8,
           "correct": 7,
           "accuracy": 0.875,
-          "meanProbability": 0.8392375000000001,
-          "meanLatencyMs": 602,
+          "meanProbability": 0.8397125000000001,
+          "meanLatencyMs": 629,
           "tokens": {
             "input": 493,
-            "output": 712
+            "output": 715
           }
         }
       ]
@@ -771,7 +916,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 360,
+            "latencyMs": 413,
             "usage": {
               "input_tokens": 504,
               "output_tokens": 56
@@ -788,12 +933,34 @@
                 "expected": "move e9",
                 "actual": "move e9",
                 "correct": true,
-                "probability": 0.9811807348149947
+                "probability": 0.9757215379725686
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 570,
+            "latencyMs": 414,
+            "usage": {
+              "input_tokens": 216,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "move": {
+                "expected": "move e9",
+                "actual": "move e9",
+                "correct": true,
+                "probability": 0.866308283805039
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 409,
             "usage": {
               "input_tokens": 216,
               "output_tokens": 0
@@ -804,18 +971,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "move": {
                 "expected": "move e9",
                 "actual": "move e9",
                 "correct": true,
-                "probability": 0.9751050274538128
+                "probability": 0.9751058510737477
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 694,
+            "latencyMs": 420,
             "usage": {
               "input_tokens": 251,
               "output_tokens": 1
@@ -837,7 +1004,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 1613,
+            "latencyMs": 1527,
             "usage": {
               "input_tokens": 264,
               "output_tokens": 0
@@ -854,12 +1021,12 @@
                 "expected": "move e9",
                 "actual": "move e9",
                 "correct": true,
-                "probability": 0.6428
+                "probability": 0.6296
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 1547,
+            "latencyMs": 963,
             "usage": {
               "input_tokens": 185,
               "output_tokens": 85
@@ -887,12 +1054,12 @@
                 "expected": "wall d1h",
                 "actual": "move e3",
                 "correct": false,
-                "probability": 0.34
+                "probability": 0.28
               }
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 328,
+            "latencyMs": 205,
             "usage": {
               "input_tokens": 526,
               "output_tokens": 57
@@ -909,12 +1076,34 @@
                 "expected": "wall d1h",
                 "actual": "move e3",
                 "correct": false,
-                "probability": 0.24850043529997062
+                "probability": 0.21597960941188374
               }
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 398,
+            "latencyMs": 304,
+            "usage": {
+              "input_tokens": 237,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "move": {
+                "expected": "wall d1h",
+                "actual": "move e3",
+                "correct": false,
+                "probability": 0.23028923486801128
+              }
+            },
+            "correct": 0,
+            "graded": 1,
+            "latencyMs": 842,
             "usage": {
               "input_tokens": 237,
               "output_tokens": 0
@@ -925,18 +1114,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "move": {
                 "expected": "wall d1h",
                 "actual": "move e3",
                 "correct": false,
-                "probability": 0.3703703316911913
+                "probability": 0.3703699743077536
               }
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 252,
+            "latencyMs": 333,
             "usage": {
               "input_tokens": 273,
               "output_tokens": 1
@@ -958,7 +1147,7 @@
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 298,
+            "latencyMs": 369,
             "usage": {
               "input_tokens": 286,
               "output_tokens": 0
@@ -975,15 +1164,15 @@
                 "expected": "wall d1h",
                 "actual": "move e3",
                 "correct": false,
-                "probability": 0.1134
+                "probability": 0.1141
               }
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 624,
+            "latencyMs": 647,
             "usage": {
               "input_tokens": 207,
-              "output_tokens": 86
+              "output_tokens": 85
             },
             "skipped": null,
             "error": null
@@ -1008,12 +1197,12 @@
                 "expected": "move d5",
                 "actual": "move f5",
                 "correct": false,
-                "probability": 0.18
+                "probability": 0.2
               }
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 220,
+            "latencyMs": 214,
             "usage": {
               "input_tokens": 532,
               "output_tokens": 46
@@ -1030,12 +1219,34 @@
                 "expected": "move d5",
                 "actual": "move d5",
                 "correct": true,
-                "probability": 0.6561569622645899
+                "probability": 0.7111391334768524
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 267,
+            "latencyMs": 487,
+            "usage": {
+              "input_tokens": 259,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "move": {
+                "expected": "move d5",
+                "actual": "move d5",
+                "correct": true,
+                "probability": 0.8692376642600642
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 334,
             "usage": {
               "input_tokens": 259,
               "output_tokens": 0
@@ -1046,18 +1257,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "move": {
                 "expected": "move d5",
                 "actual": "move d5",
                 "correct": true,
-                "probability": 0.9813819170918788
+                "probability": 0.9777017343528902
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 248,
+            "latencyMs": 346,
             "usage": {
               "input_tokens": 274,
               "output_tokens": 1
@@ -1079,7 +1290,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 554,
+            "latencyMs": 326,
             "usage": {
               "input_tokens": 283,
               "output_tokens": 0
@@ -1101,7 +1312,7 @@
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 1374,
+            "latencyMs": 1708,
             "usage": {
               "input_tokens": 210,
               "output_tokens": 70
@@ -1130,18 +1341,18 @@
                 "expected": "Ra8",
                 "actual": "Ra8",
                 "correct": true,
-                "probability": 0.49
+                "probability": 0.47
               },
               "evaluation": {
                 "expected": "White is winning",
                 "actual": "equal",
                 "correct": false,
-                "probability": 0.35
+                "probability": 0.33
               }
             },
             "correct": 1,
             "graded": 2,
-            "latencyMs": 251,
+            "latencyMs": 330,
             "usage": {
               "input_tokens": 388,
               "output_tokens": 65
@@ -1158,18 +1369,46 @@
                 "expected": "Ra8",
                 "actual": "Ra8",
                 "correct": true,
-                "probability": 0.40164173572366507
+                "probability": 0.437737039364386
               },
               "evaluation": {
                 "expected": "White is winning",
                 "actual": "equal",
                 "correct": false,
-                "probability": 0.25244334190380713
+                "probability": 0.22817408083177465
               }
             },
             "correct": 1,
             "graded": 2,
-            "latencyMs": 265,
+            "latencyMs": 311,
+            "usage": {
+              "input_tokens": 131,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "move": {
+                "expected": "Ra8",
+                "actual": "Ra8",
+                "correct": true,
+                "probability": 0.42424906361394404
+              },
+              "evaluation": {
+                "expected": "White is winning",
+                "actual": "equal",
+                "correct": false,
+                "probability": 0.44691270916638387
+              }
+            },
+            "correct": 1,
+            "graded": 2,
+            "latencyMs": 312,
             "usage": {
               "input_tokens": 131,
               "output_tokens": 0
@@ -1180,24 +1419,24 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "move": {
                 "expected": "Ra8",
                 "actual": "Ra8",
                 "correct": true,
-                "probability": 0.3886054391942199
+                "probability": 0.3886053592622195
               },
               "evaluation": {
                 "expected": "White is winning",
                 "actual": "White is winning",
                 "correct": true,
-                "probability": 0.6056949014367782
+                "probability": 0.6056932327762272
               }
             },
             "correct": 2,
             "graded": 2,
-            "latencyMs": 254,
+            "latencyMs": 604,
             "usage": {
               "input_tokens": 166,
               "output_tokens": 2
@@ -1225,7 +1464,7 @@
             },
             "correct": 1,
             "graded": 2,
-            "latencyMs": 603,
+            "latencyMs": 394,
             "usage": {
               "input_tokens": 273,
               "output_tokens": 0
@@ -1242,18 +1481,18 @@
                 "expected": "Ra8",
                 "actual": "Ra8",
                 "correct": true,
-                "probability": 0.3896
+                "probability": 0.3888
               },
               "evaluation": {
                 "expected": "White is winning",
                 "actual": "equal",
                 "correct": false,
-                "probability": 0.4209
+                "probability": 0.4171
               }
             },
             "correct": 1,
             "graded": 2,
-            "latencyMs": 636,
+            "latencyMs": 625,
             "usage": {
               "input_tokens": 89,
               "output_tokens": 170
@@ -1286,7 +1525,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 249,
+            "latencyMs": 201,
             "usage": {
               "input_tokens": 402,
               "output_tokens": 57
@@ -1303,12 +1542,34 @@
                 "expected": "Qxf7#",
                 "actual": "Qxf7#",
                 "correct": true,
-                "probability": 0.7325785948576337
+                "probability": 0.7275705973904624
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 289,
+            "latencyMs": 268,
+            "usage": {
+              "input_tokens": 143,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "move": {
+                "expected": "Qxf7#",
+                "actual": "Qxf7#",
+                "correct": true,
+                "probability": 0.8985197872434852
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 325,
             "usage": {
               "input_tokens": 143,
               "output_tokens": 0
@@ -1319,18 +1580,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "move": {
                 "expected": "Qxf7#",
                 "actual": "Nf3",
                 "correct": false,
-                "probability": 0.3839125677824703
+                "probability": 0.2584955131009351
               }
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 243,
+            "latencyMs": 298,
             "usage": {
               "input_tokens": 188,
               "output_tokens": 1
@@ -1352,7 +1613,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 610,
+            "latencyMs": 313,
             "usage": {
               "input_tokens": 214,
               "output_tokens": 0
@@ -1369,15 +1630,15 @@
                 "expected": "Qxf7#",
                 "actual": "Bxf7+",
                 "correct": false,
-                "probability": 0.1476
+                "probability": 0.1469
               }
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 646,
+            "latencyMs": 739,
             "usage": {
               "input_tokens": 123,
-              "output_tokens": 84
+              "output_tokens": 85
             },
             "skipped": null,
             "error": null
@@ -1407,7 +1668,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 211,
+            "latencyMs": 247,
             "usage": {
               "input_tokens": 383,
               "output_tokens": 52
@@ -1424,12 +1685,34 @@
                 "expected": "Nxh4",
                 "actual": "Nxh4",
                 "correct": true,
-                "probability": 0.841748765905048
+                "probability": 0.8840113839497523
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 760,
+            "latencyMs": 321,
+            "usage": {
+              "input_tokens": 128,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "move": {
+                "expected": "Nxh4",
+                "actual": "Nxh4",
+                "correct": true,
+                "probability": 0.9630338247696051
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 813,
             "usage": {
               "input_tokens": 128,
               "output_tokens": 0
@@ -1440,18 +1723,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "move": {
                 "expected": "Nxh4",
                 "actual": "Nxh4",
                 "correct": true,
-                "probability": 0.8746583042362243
+                "probability": 0.8746620306593342
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 282,
+            "latencyMs": 360,
             "usage": {
               "input_tokens": 170,
               "output_tokens": 1
@@ -1473,7 +1756,7 @@
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 242,
+            "latencyMs": 322,
             "usage": {
               "input_tokens": 199,
               "output_tokens": 0
@@ -1490,12 +1773,12 @@
                 "expected": "Nxh4",
                 "actual": "Nc3",
                 "correct": false,
-                "probability": 0.195
+                "probability": 0.1975
               }
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 555,
+            "latencyMs": 666,
             "usage": {
               "input_tokens": 105,
               "output_tokens": 82
@@ -1523,12 +1806,12 @@
                 "expected": "3",
                 "actual": "3",
                 "correct": true,
-                "probability": 0.82
+                "probability": 0.7
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 245,
+            "latencyMs": 208,
             "usage": {
               "input_tokens": 348,
               "output_tokens": 45
@@ -1545,12 +1828,34 @@
                 "expected": "3",
                 "actual": "3",
                 "correct": true,
-                "probability": 0.5518944240001942
+                "probability": 0.5708607087456564
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 261,
+            "latencyMs": 258,
+            "usage": {
+              "input_tokens": 94,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "square": {
+                "expected": "3",
+                "actual": "3",
+                "correct": true,
+                "probability": 0.6555662506981187
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 366,
             "usage": {
               "input_tokens": 94,
               "output_tokens": 0
@@ -1561,18 +1866,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "square": {
                 "expected": "3",
                 "actual": "3",
                 "correct": true,
-                "probability": 0.7374857482029102
+                "probability": 0.7374900664801473
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 222,
+            "latencyMs": 309,
             "usage": {
               "input_tokens": 139,
               "output_tokens": 1
@@ -1594,7 +1899,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 276,
+            "latencyMs": 416,
             "usage": {
               "input_tokens": 167,
               "output_tokens": 0
@@ -1611,15 +1916,15 @@
                 "expected": "3",
                 "actual": "9",
                 "correct": false,
-                "probability": 0.2461
+                "probability": 0.2425
               }
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 625,
+            "latencyMs": 810,
             "usage": {
               "input_tokens": 70,
-              "output_tokens": 71
+              "output_tokens": 74
             },
             "skipped": null,
             "error": null
@@ -1644,12 +1949,12 @@
                 "expected": "3",
                 "actual": "3",
                 "correct": true,
-                "probability": 0.87
+                "probability": 0.9
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 262,
+            "latencyMs": 208,
             "usage": {
               "input_tokens": 347,
               "output_tokens": 45
@@ -1666,12 +1971,34 @@
                 "expected": "3",
                 "actual": "3",
                 "correct": true,
-                "probability": 0.6742953265329252
+                "probability": 0.6195429946312061
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 273,
+            "latencyMs": 296,
+            "usage": {
+              "input_tokens": 93,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "square": {
+                "expected": "3",
+                "actual": "3",
+                "correct": true,
+                "probability": 0.7815340598201161
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 359,
             "usage": {
               "input_tokens": 93,
               "output_tokens": 0
@@ -1682,18 +2009,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "square": {
                 "expected": "3",
                 "actual": "7",
                 "correct": false,
-                "probability": 0.22591068182134882
+                "probability": 0.22591082852326747
               }
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 239,
+            "latencyMs": 1012,
             "usage": {
               "input_tokens": 138,
               "output_tokens": 1
@@ -1715,7 +2042,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 281,
+            "latencyMs": 415,
             "usage": {
               "input_tokens": 166,
               "output_tokens": 0
@@ -1732,15 +2059,15 @@
                 "expected": "3",
                 "actual": "4",
                 "correct": false,
-                "probability": 0.1457
+                "probability": 0.1481
               }
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 635,
+            "latencyMs": 693,
             "usage": {
               "input_tokens": 69,
-              "output_tokens": 73
+              "output_tokens": 74
             },
             "skipped": null,
             "error": null
@@ -1765,12 +2092,12 @@
                 "expected": "1",
                 "actual": "7",
                 "correct": false,
-                "probability": 0.09
+                "probability": 0.11
               }
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 264,
+            "latencyMs": 204,
             "usage": {
               "input_tokens": 350,
               "output_tokens": 45
@@ -1785,14 +2112,36 @@
             "grades": {
               "square": {
                 "expected": "1",
-                "actual": "2",
-                "correct": false,
-                "probability": 0.2762677033476112
+                "actual": "1",
+                "correct": true,
+                "probability": 0.3530514341968685
               }
             },
-            "correct": 0,
+            "correct": 1,
             "graded": 1,
-            "latencyMs": 268,
+            "latencyMs": 287,
+            "usage": {
+              "input_tokens": 96,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "square": {
+                "expected": "1",
+                "actual": "1",
+                "correct": true,
+                "probability": 0.311285127288901
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 320,
             "usage": {
               "input_tokens": 96,
               "output_tokens": 0
@@ -1803,18 +2152,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "square": {
                 "expected": "1",
                 "actual": "7",
                 "correct": false,
-                "probability": 0.2795128826157492
+                "probability": 0.2795130985081894
               }
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 231,
+            "latencyMs": 486,
             "usage": {
               "input_tokens": 141,
               "output_tokens": 1
@@ -1836,7 +2185,7 @@
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 377,
+            "latencyMs": 566,
             "usage": {
               "input_tokens": 169,
               "output_tokens": 0
@@ -1858,7 +2207,7 @@
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 569,
+            "latencyMs": 603,
             "usage": {
               "input_tokens": 72,
               "output_tokens": 74
@@ -1886,12 +2235,12 @@
                 "expected": "left",
                 "actual": "left",
                 "correct": true,
-                "probability": 0.86
+                "probability": 0.84
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 212,
+            "latencyMs": 232,
             "usage": {
               "input_tokens": 654,
               "output_tokens": 39
@@ -1908,12 +2257,34 @@
                 "expected": "left",
                 "actual": "right",
                 "correct": false,
-                "probability": 0.3884363469415935
+                "probability": 0.25371618163502524
               }
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 272,
+            "latencyMs": 282,
+            "usage": {
+              "input_tokens": 242,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "steer": {
+                "expected": "left",
+                "actual": "left",
+                "correct": true,
+                "probability": 0.865473765014896
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 408,
             "usage": {
               "input_tokens": 242,
               "output_tokens": 0
@@ -1924,18 +2295,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "steer": {
                 "expected": "left",
                 "actual": "left",
                 "correct": true,
-                "probability": 0.9442478266742945
+                "probability": 0.9467596358007319
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 419,
+            "latencyMs": 344,
             "usage": {
               "input_tokens": 220,
               "output_tokens": 1
@@ -1957,7 +2328,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 314,
+            "latencyMs": 322,
             "usage": {
               "input_tokens": 254,
               "output_tokens": 0
@@ -2002,9 +2373,9 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 276,
+            "latencyMs": 309,
             "usage": {
-              "input_tokens": 654,
+              "input_tokens": 656,
               "output_tokens": 39
             },
             "skipped": null,
@@ -2019,12 +2390,34 @@
                 "expected": "right",
                 "actual": "right",
                 "correct": true,
-                "probability": 0.7929252273453924
+                "probability": 0.824778002543356
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 283,
+            "latencyMs": 294,
+            "usage": {
+              "input_tokens": 242,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "steer": {
+                "expected": "right",
+                "actual": "right",
+                "correct": true,
+                "probability": 0.8767081819803737
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 869,
             "usage": {
               "input_tokens": 242,
               "output_tokens": 0
@@ -2035,18 +2428,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "steer": {
                 "expected": "right",
                 "actual": "right",
                 "correct": true,
-                "probability": 0.9691012776367612
+                "probability": 0.9771138368691334
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 251,
+            "latencyMs": 409,
             "usage": {
               "input_tokens": 220,
               "output_tokens": 1
@@ -2068,7 +2461,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 410,
+            "latencyMs": 313,
             "usage": {
               "input_tokens": 254,
               "output_tokens": 0
@@ -2113,9 +2506,9 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 292,
+            "latencyMs": 208,
             "usage": {
-              "input_tokens": 653,
+              "input_tokens": 656,
               "output_tokens": 39
             },
             "skipped": null,
@@ -2130,12 +2523,34 @@
                 "expected": "straight",
                 "actual": "straight",
                 "correct": true,
-                "probability": 0.9922468817572747
+                "probability": 0.9754419982305166
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 271,
+            "latencyMs": 318,
+            "usage": {
+              "input_tokens": 242,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "steer": {
+                "expected": "straight",
+                "actual": "straight",
+                "correct": true,
+                "probability": 0.8605164765845954
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 288,
             "usage": {
               "input_tokens": 242,
               "output_tokens": 0
@@ -2146,18 +2561,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "steer": {
                 "expected": "straight",
                 "actual": "straight",
                 "correct": true,
-                "probability": 0.9253449496198134
+                "probability": 0.930862251216571
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 417,
+            "latencyMs": 399,
             "usage": {
               "input_tokens": 220,
               "output_tokens": 1
@@ -2179,7 +2594,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 699,
+            "latencyMs": 443,
             "usage": {
               "input_tokens": 254,
               "output_tokens": 0
@@ -2241,12 +2656,34 @@
                 "expected": true,
                 "actual": true,
                 "correct": true,
-                "probability": 0.9924227600487753
+                "probability": 0.9924227578357059
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 286,
+            "latencyMs": 558,
+            "usage": {
+              "input_tokens": 224,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "stop": {
+                "expected": true,
+                "actual": true,
+                "correct": true,
+                "probability": 0.9899582984732788
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 298,
             "usage": {
               "input_tokens": 224,
               "output_tokens": 0
@@ -2257,18 +2694,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "stop": {
                 "expected": true,
                 "actual": true,
                 "correct": true,
-                "probability": 0.9980313543111519
+                "probability": 0.9979217932771172
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 659,
+            "latencyMs": 379,
             "usage": {
               "input_tokens": 212,
               "output_tokens": 1
@@ -2290,7 +2727,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 354,
+            "latencyMs": 737,
             "usage": {
               "input_tokens": 289,
               "output_tokens": 0
@@ -2330,14 +2767,14 @@
                 "expected": false,
                 "actual": false,
                 "correct": true,
-                "probability": 0.97
+                "probability": 0.96
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 259,
+            "latencyMs": 237,
             "usage": {
-              "input_tokens": 628,
+              "input_tokens": 626,
               "output_tokens": 20
             },
             "skipped": null,
@@ -2352,12 +2789,34 @@
                 "expected": false,
                 "actual": false,
                 "correct": true,
-                "probability": 0.9987551569665462
+                "probability": 0.9990889489073245
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 267,
+            "latencyMs": 338,
+            "usage": {
+              "input_tokens": 224,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "stop": {
+                "expected": false,
+                "actual": false,
+                "correct": true,
+                "probability": 0.9935371343444624
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 334,
             "usage": {
               "input_tokens": 224,
               "output_tokens": 0
@@ -2368,18 +2827,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "stop": {
                 "expected": false,
                 "actual": false,
                 "correct": true,
-                "probability": 0.9986386810877872
+                "probability": 0.9984897727071405
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 671,
+            "latencyMs": 472,
             "usage": {
               "input_tokens": 212,
               "output_tokens": 1
@@ -2401,7 +2860,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 582,
+            "latencyMs": 513,
             "usage": {
               "input_tokens": 289,
               "output_tokens": 0
@@ -2446,7 +2905,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 213,
+            "latencyMs": 197,
             "usage": {
               "input_tokens": 434,
               "output_tokens": 40
@@ -2463,12 +2922,34 @@
                 "expected": "keep",
                 "actual": "keep",
                 "correct": true,
-                "probability": 0.971130264541571
+                "probability": 0.9762850488041945
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 283,
+            "latencyMs": 416,
+            "usage": {
+              "input_tokens": 158,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "action": {
+                "expected": "keep",
+                "actual": "keep",
+                "correct": true,
+                "probability": 0.9963752783379558
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 832,
             "usage": {
               "input_tokens": 158,
               "output_tokens": 0
@@ -2479,18 +2960,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "action": {
                 "expected": "keep",
                 "actual": "keep",
                 "correct": true,
-                "probability": 0.9939745396424371
+                "probability": 0.9939747196319402
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 231,
+            "latencyMs": 381,
             "usage": {
               "input_tokens": 190,
               "output_tokens": 1
@@ -2512,7 +2993,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 243,
+            "latencyMs": 293,
             "usage": {
               "input_tokens": 213,
               "output_tokens": 0
@@ -2534,7 +3015,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 628,
+            "latencyMs": 1663,
             "usage": {
               "input_tokens": 125,
               "output_tokens": 62
@@ -2567,7 +3048,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 224,
+            "latencyMs": 233,
             "usage": {
               "input_tokens": 422,
               "output_tokens": 40
@@ -2584,12 +3065,34 @@
                 "expected": "drop",
                 "actual": "drop",
                 "correct": true,
-                "probability": 0.9737991581370022
+                "probability": 0.9532769062097511
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 282,
+            "latencyMs": 264,
+            "usage": {
+              "input_tokens": 144,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "action": {
+                "expected": "drop",
+                "actual": "drop",
+                "correct": true,
+                "probability": 0.9888920870160951
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 498,
             "usage": {
               "input_tokens": 144,
               "output_tokens": 0
@@ -2600,18 +3103,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "action": {
                 "expected": "drop",
                 "actual": "drop",
                 "correct": true,
-                "probability": 0.998554851680322
+                "probability": 0.9985549091892331
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 268,
+            "latencyMs": 333,
             "usage": {
               "input_tokens": 178,
               "output_tokens": 1
@@ -2633,7 +3136,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 305,
+            "latencyMs": 297,
             "usage": {
               "input_tokens": 199,
               "output_tokens": 0
@@ -2650,15 +3153,15 @@
                 "expected": "drop",
                 "actual": "drop",
                 "correct": true,
-                "probability": 0.6011
+                "probability": 0.6012
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 668,
+            "latencyMs": 735,
             "usage": {
               "input_tokens": 112,
-              "output_tokens": 64
+              "output_tokens": 65
             },
             "skipped": null,
             "error": null
@@ -2681,17 +3184,17 @@
             "grades": {
               "action": {
                 "expected": "summarize",
-                "actual": "drop",
-                "correct": false,
-                "probability": 0.47
+                "actual": "summarize",
+                "correct": true,
+                "probability": 0.53
               }
             },
-            "correct": 0,
+            "correct": 1,
             "graded": 1,
-            "latencyMs": 305,
+            "latencyMs": 216,
             "usage": {
               "input_tokens": 1541,
-              "output_tokens": 40
+              "output_tokens": 42
             },
             "skipped": null,
             "error": null
@@ -2705,12 +3208,34 @@
                 "expected": "summarize",
                 "actual": "summarize",
                 "correct": true,
-                "probability": 0.6517783872809528
+                "probability": 0.506480391055654
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 279,
+            "latencyMs": 300,
+            "usage": {
+              "input_tokens": 1108,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "action": {
+                "expected": "summarize",
+                "actual": "summarize",
+                "correct": true,
+                "probability": 0.736484431115259
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 328,
             "usage": {
               "input_tokens": 1108,
               "output_tokens": 0
@@ -2721,18 +3246,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "action": {
                 "expected": "summarize",
                 "actual": "summarize",
                 "correct": true,
-                "probability": 0.672050379658701
+                "probability": 0.672050728134386
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 506,
+            "latencyMs": 390,
             "usage": {
               "input_tokens": 1333,
               "output_tokens": 1
@@ -2754,7 +3279,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 260,
+            "latencyMs": 403,
             "usage": {
               "input_tokens": 1196,
               "output_tokens": 0
@@ -2771,15 +3296,15 @@
                 "expected": "summarize",
                 "actual": "summarize",
                 "correct": true,
-                "probability": 0.4701
+                "probability": 0.4686
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 688,
+            "latencyMs": 758,
             "usage": {
               "input_tokens": 1266,
-              "output_tokens": 67
+              "output_tokens": 66
             },
             "skipped": null,
             "error": null
@@ -2804,12 +3329,12 @@
                 "expected": "keep",
                 "actual": "keep",
                 "correct": true,
-                "probability": 0.77
+                "probability": 0.74
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 255,
+            "latencyMs": 205,
             "usage": {
               "input_tokens": 433,
               "output_tokens": 40
@@ -2826,12 +3351,34 @@
                 "expected": "keep",
                 "actual": "keep",
                 "correct": true,
-                "probability": 0.8338453426622215
+                "probability": 0.789224191097151
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 270,
+            "latencyMs": 266,
+            "usage": {
+              "input_tokens": 157,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "action": {
+                "expected": "keep",
+                "actual": "keep",
+                "correct": true,
+                "probability": 0.9590044775588704
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 295,
             "usage": {
               "input_tokens": 157,
               "output_tokens": 0
@@ -2842,18 +3389,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "action": {
                 "expected": "keep",
                 "actual": "keep",
                 "correct": true,
-                "probability": 0.8332999245074446
+                "probability": 0.8368310230013911
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 226,
+            "latencyMs": 298,
             "usage": {
               "input_tokens": 189,
               "output_tokens": 1
@@ -2875,7 +3422,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 318,
+            "latencyMs": 310,
             "usage": {
               "input_tokens": 211,
               "output_tokens": 0
@@ -2892,12 +3439,12 @@
                 "expected": "keep",
                 "actual": "keep",
                 "correct": true,
-                "probability": 0.5986
+                "probability": 0.5965
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 794,
+            "latencyMs": 736,
             "usage": {
               "input_tokens": 123,
               "output_tokens": 65
@@ -2925,12 +3472,12 @@
                 "expected": "summarize",
                 "actual": "summarize",
                 "correct": true,
-                "probability": 0.64
+                "probability": 0.68
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 242,
+            "latencyMs": 271,
             "usage": {
               "input_tokens": 1358,
               "output_tokens": 42
@@ -2945,14 +3492,36 @@
             "grades": {
               "action": {
                 "expected": "summarize",
+                "actual": "keep",
+                "correct": false,
+                "probability": 0.46002943764131987
+              }
+            },
+            "correct": 0,
+            "graded": 1,
+            "latencyMs": 295,
+            "usage": {
+              "input_tokens": 1179,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "action": {
+                "expected": "summarize",
                 "actual": "summarize",
                 "correct": true,
-                "probability": 0.4863172582192799
+                "probability": 0.9148626158439072
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 281,
+            "latencyMs": 559,
             "usage": {
               "input_tokens": 1179,
               "output_tokens": 0
@@ -2963,18 +3532,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "action": {
                 "expected": "summarize",
                 "actual": "summarize",
                 "correct": true,
-                "probability": 0.969288921950763
+                "probability": 0.969290004754977
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 283,
+            "latencyMs": 382,
             "usage": {
               "input_tokens": 1135,
               "output_tokens": 1
@@ -2996,7 +3565,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 858,
+            "latencyMs": 377,
             "usage": {
               "input_tokens": 1107,
               "output_tokens": 0
@@ -3013,12 +3582,12 @@
                 "expected": "summarize",
                 "actual": "summarize",
                 "correct": true,
-                "probability": 0.4537
+                "probability": 0.4597
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 663,
+            "latencyMs": 665,
             "usage": {
               "input_tokens": 1068,
               "output_tokens": 67
@@ -3051,7 +3620,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 305,
+            "latencyMs": 236,
             "usage": {
               "input_tokens": 423,
               "output_tokens": 41
@@ -3068,12 +3637,34 @@
                 "expected": "spam",
                 "actual": "spam",
                 "correct": true,
-                "probability": 0.992085894032141
+                "probability": 0.9897508169356707
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 264,
+            "latencyMs": 282,
+            "usage": {
+              "input_tokens": 143,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "verdict": {
+                "expected": "spam",
+                "actual": "spam",
+                "correct": true,
+                "probability": 0.9885476032137085
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 286,
             "usage": {
               "input_tokens": 143,
               "output_tokens": 0
@@ -3084,18 +3675,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "verdict": {
                 "expected": "spam",
                 "actual": "spam",
                 "correct": true,
-                "probability": 0.9925746931742547
+                "probability": 0.9932193297627236
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 244,
+            "latencyMs": 558,
             "usage": {
               "input_tokens": 184,
               "output_tokens": 1
@@ -3117,7 +3708,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 754,
+            "latencyMs": 269,
             "usage": {
               "input_tokens": 209,
               "output_tokens": 0
@@ -3134,12 +3725,12 @@
                 "expected": "spam",
                 "actual": "spam",
                 "correct": true,
-                "probability": 0.9007
+                "probability": 0.9013
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 598,
+            "latencyMs": 636,
             "usage": {
               "input_tokens": 121,
               "output_tokens": 65
@@ -3172,7 +3763,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 188,
+            "latencyMs": 244,
             "usage": {
               "input_tokens": 386,
               "output_tokens": 41
@@ -3189,12 +3780,34 @@
                 "expected": "ham",
                 "actual": "ham",
                 "correct": true,
-                "probability": 0.9991828006770751
+                "probability": 0.9982829231037605
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 350,
+            "latencyMs": 274,
+            "usage": {
+              "input_tokens": 105,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "verdict": {
+                "expected": "ham",
+                "actual": "ham",
+                "correct": true,
+                "probability": 0.9975487909202698
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 374,
             "usage": {
               "input_tokens": 105,
               "output_tokens": 0
@@ -3205,18 +3818,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "verdict": {
                 "expected": "ham",
                 "actual": "ham",
                 "correct": true,
-                "probability": 0.9982852150003314
+                "probability": 0.9982852879090823
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 239,
+            "latencyMs": 299,
             "usage": {
               "input_tokens": 151,
               "output_tokens": 1
@@ -3238,7 +3851,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 266,
+            "latencyMs": 392,
             "usage": {
               "input_tokens": 181,
               "output_tokens": 0
@@ -3255,12 +3868,12 @@
                 "expected": "ham",
                 "actual": "ham",
                 "correct": true,
-                "probability": 0.9615
+                "probability": 0.9603
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 577,
+            "latencyMs": 610,
             "usage": {
               "input_tokens": 88,
               "output_tokens": 65
@@ -3293,7 +3906,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 214,
+            "latencyMs": 204,
             "usage": {
               "input_tokens": 397,
               "output_tokens": 43
@@ -3310,12 +3923,34 @@
                 "expected": "phishing",
                 "actual": "phishing",
                 "correct": true,
-                "probability": 0.9996732286064931
+                "probability": 0.9996807002918463
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 259,
+            "latencyMs": 348,
+            "usage": {
+              "input_tokens": 114,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "verdict": {
+                "expected": "phishing",
+                "actual": "phishing",
+                "correct": true,
+                "probability": 0.9984908953154468
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 295,
             "usage": {
               "input_tokens": 114,
               "output_tokens": 0
@@ -3326,18 +3961,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "verdict": {
                 "expected": "phishing",
                 "actual": "phishing",
                 "correct": true,
-                "probability": 0.9990983004485957
+                "probability": 0.999108708923678
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 257,
+            "latencyMs": 300,
             "usage": {
               "input_tokens": 162,
               "output_tokens": 1
@@ -3359,7 +3994,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 485,
+            "latencyMs": 408,
             "usage": {
               "input_tokens": 192,
               "output_tokens": 0
@@ -3376,15 +4011,15 @@
                 "expected": "phishing",
                 "actual": "phishing",
                 "correct": true,
-                "probability": 0.9046
+                "probability": 0.9043
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 638,
+            "latencyMs": 606,
             "usage": {
               "input_tokens": 99,
-              "output_tokens": 66
+              "output_tokens": 65
             },
             "skipped": null,
             "error": null
@@ -3414,7 +4049,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 230,
+            "latencyMs": 214,
             "usage": {
               "input_tokens": 430,
               "output_tokens": 43
@@ -3431,12 +4066,34 @@
                 "expected": "phishing",
                 "actual": "phishing",
                 "correct": true,
-                "probability": 0.9854315705605609
+                "probability": 0.9653238877241979
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 271,
+            "latencyMs": 263,
+            "usage": {
+              "input_tokens": 152,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "verdict": {
+                "expected": "phishing",
+                "actual": "phishing",
+                "correct": true,
+                "probability": 0.9941304805037626
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 382,
             "usage": {
               "input_tokens": 152,
               "output_tokens": 0
@@ -3447,18 +4104,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "verdict": {
                 "expected": "phishing",
                 "actual": "phishing",
                 "correct": true,
-                "probability": 0.9965972859595293
+                "probability": 0.996776473648376
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 233,
+            "latencyMs": 439,
             "usage": {
               "input_tokens": 196,
               "output_tokens": 1
@@ -3480,7 +4137,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 434,
+            "latencyMs": 390,
             "usage": {
               "input_tokens": 224,
               "output_tokens": 0
@@ -3502,7 +4159,7 @@
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 565,
+            "latencyMs": 585,
             "usage": {
               "input_tokens": 133,
               "output_tokens": 65
@@ -3530,12 +4187,12 @@
                 "expected": "ham",
                 "actual": "ham",
                 "correct": true,
-                "probability": 0.95
+                "probability": 0.96
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 291,
+            "latencyMs": 187,
             "usage": {
               "input_tokens": 424,
               "output_tokens": 41
@@ -3552,12 +4209,34 @@
                 "expected": "ham",
                 "actual": "ham",
                 "correct": true,
-                "probability": 0.8173204619286659
+                "probability": 0.7768139545099793
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 345,
+            "latencyMs": 338,
+            "usage": {
+              "input_tokens": 139,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "verdict": {
+                "expected": "ham",
+                "actual": "ham",
+                "correct": true,
+                "probability": 0.9800359668383984
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 343,
             "usage": {
               "input_tokens": 139,
               "output_tokens": 0
@@ -3568,18 +4247,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "verdict": {
                 "expected": "ham",
                 "actual": "ham",
                 "correct": true,
-                "probability": 0.8672359162086266
+                "probability": 0.8672370744801482
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 265,
+            "latencyMs": 619,
             "usage": {
               "input_tokens": 183,
               "output_tokens": 1
@@ -3601,7 +4280,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 253,
+            "latencyMs": 420,
             "usage": {
               "input_tokens": 212,
               "output_tokens": 0
@@ -3618,15 +4297,15 @@
                 "expected": "ham",
                 "actual": "ham",
                 "correct": true,
-                "probability": 0.7749
+                "probability": 0.7738
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 590,
+            "latencyMs": 612,
             "usage": {
               "input_tokens": 120,
-              "output_tokens": 64
+              "output_tokens": 65
             },
             "skipped": null,
             "error": null
@@ -3651,12 +4330,12 @@
                 "expected": "ham",
                 "actual": "ham",
                 "correct": true,
-                "probability": 0.91
+                "probability": 0.92
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 258,
+            "latencyMs": 212,
             "usage": {
               "input_tokens": 458,
               "output_tokens": 41
@@ -3673,12 +4352,34 @@
                 "expected": "ham",
                 "actual": "ham",
                 "correct": true,
-                "probability": 0.973682122999912
+                "probability": 0.9645014020568973
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 266,
+            "latencyMs": 310,
+            "usage": {
+              "input_tokens": 173,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "verdict": {
+                "expected": "ham",
+                "actual": "ham",
+                "correct": true,
+                "probability": 0.9726591620009767
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 294,
             "usage": {
               "input_tokens": 173,
               "output_tokens": 0
@@ -3689,18 +4390,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "verdict": {
                 "expected": "ham",
                 "actual": "ham",
                 "correct": true,
-                "probability": 0.9915483590436347
+                "probability": 0.991548658101517
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 231,
+            "latencyMs": 368,
             "usage": {
               "input_tokens": 223,
               "output_tokens": 1
@@ -3722,7 +4423,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 309,
+            "latencyMs": 317,
             "usage": {
               "input_tokens": 245,
               "output_tokens": 0
@@ -3739,15 +4440,15 @@
                 "expected": "ham",
                 "actual": "ham",
                 "correct": true,
-                "probability": 0.6492
+                "probability": 0.6505
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 657,
+            "latencyMs": 617,
             "usage": {
               "input_tokens": 160,
-              "output_tokens": 65
+              "output_tokens": 64
             },
             "skipped": null,
             "error": null
@@ -3777,7 +4478,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 252,
+            "latencyMs": 210,
             "usage": {
               "input_tokens": 376,
               "output_tokens": 43
@@ -3794,12 +4495,34 @@
                 "expected": "safe",
                 "actual": "safe",
                 "correct": true,
-                "probability": 0.9990761962691884
+                "probability": 0.9984106195347435
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 343,
+            "latencyMs": 282,
+            "usage": {
+              "input_tokens": 92,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "verdict": {
+                "expected": "safe",
+                "actual": "safe",
+                "correct": true,
+                "probability": 0.9963845256731586
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 313,
             "usage": {
               "input_tokens": 92,
               "output_tokens": 0
@@ -3810,18 +4533,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "verdict": {
                 "expected": "safe",
                 "actual": "safe",
                 "correct": true,
-                "probability": 0.9976980643719375
+                "probability": 0.9976981492998953
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 442,
+            "latencyMs": 311,
             "usage": {
               "input_tokens": 141,
               "output_tokens": 1
@@ -3843,7 +4566,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 266,
+            "latencyMs": 306,
             "usage": {
               "input_tokens": 170,
               "output_tokens": 0
@@ -3860,15 +4583,15 @@
                 "expected": "safe",
                 "actual": "safe",
                 "correct": true,
-                "probability": 0.948
+                "probability": 0.9481
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 623,
+            "latencyMs": 654,
             "usage": {
               "input_tokens": 79,
-              "output_tokens": 66
+              "output_tokens": 68
             },
             "skipped": null,
             "error": null
@@ -3898,7 +4621,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 223,
+            "latencyMs": 209,
             "usage": {
               "input_tokens": 391,
               "output_tokens": 46
@@ -3915,12 +4638,34 @@
                 "expected": "prompt_injection",
                 "actual": "prompt_injection",
                 "correct": true,
-                "probability": 0.999955208403985
+                "probability": 0.9999324028084658
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 319,
+            "latencyMs": 259,
+            "usage": {
+              "input_tokens": 107,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "verdict": {
+                "expected": "prompt_injection",
+                "actual": "prompt_injection",
+                "correct": true,
+                "probability": 0.9989227105881101
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 302,
             "usage": {
               "input_tokens": 107,
               "output_tokens": 0
@@ -3931,18 +4676,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "verdict": {
                 "expected": "prompt_injection",
                 "actual": "prompt_injection",
                 "correct": true,
-                "probability": 0.9984348855044296
+                "probability": 0.9984349455626792
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 227,
+            "latencyMs": 312,
             "usage": {
               "input_tokens": 156,
               "output_tokens": 1
@@ -3964,7 +4709,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 235,
+            "latencyMs": 762,
             "usage": {
               "input_tokens": 185,
               "output_tokens": 0
@@ -3986,7 +4731,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 646,
+            "latencyMs": 611,
             "usage": {
               "input_tokens": 94,
               "output_tokens": 69
@@ -4019,7 +4764,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 259,
+            "latencyMs": 212,
             "usage": {
               "input_tokens": 379,
               "output_tokens": 44
@@ -4036,12 +4781,34 @@
                 "expected": "harmful",
                 "actual": "harmful",
                 "correct": true,
-                "probability": 0.9984677095806707
+                "probability": 0.9987362786318904
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 258,
+            "latencyMs": 257,
+            "usage": {
+              "input_tokens": 96,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "verdict": {
+                "expected": "harmful",
+                "actual": "harmful",
+                "correct": true,
+                "probability": 0.998902264843913
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 312,
             "usage": {
               "input_tokens": 96,
               "output_tokens": 0
@@ -4052,18 +4819,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "verdict": {
                 "expected": "harmful",
                 "actual": "harmful",
                 "correct": true,
-                "probability": 0.9985086353206096
+                "probability": 0.9985087020055543
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 242,
+            "latencyMs": 362,
             "usage": {
               "input_tokens": 144,
               "output_tokens": 1
@@ -4085,7 +4852,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 437,
+            "latencyMs": 287,
             "usage": {
               "input_tokens": 173,
               "output_tokens": 0
@@ -4102,15 +4869,15 @@
                 "expected": "harmful",
                 "actual": "harmful",
                 "correct": true,
-                "probability": 0.9775
+                "probability": 0.9768
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 581,
+            "latencyMs": 682,
             "usage": {
               "input_tokens": 82,
-              "output_tokens": 69
+              "output_tokens": 70
             },
             "skipped": null,
             "error": null
@@ -4140,7 +4907,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 199,
+            "latencyMs": 227,
             "usage": {
               "input_tokens": 421,
               "output_tokens": 46
@@ -4157,12 +4924,34 @@
                 "expected": "prompt_injection",
                 "actual": "safe",
                 "correct": false,
-                "probability": 0.49962442257543793
+                "probability": 0.49981107720138795
               }
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 265,
+            "latencyMs": 296,
+            "usage": {
+              "input_tokens": 137,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "verdict": {
+                "expected": "prompt_injection",
+                "actual": "prompt_injection",
+                "correct": true,
+                "probability": 0.8574003145290859
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 339,
             "usage": {
               "input_tokens": 137,
               "output_tokens": 0
@@ -4173,18 +4962,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "verdict": {
                 "expected": "prompt_injection",
                 "actual": "prompt_injection",
                 "correct": true,
-                "probability": 0.9959360317780751
+                "probability": 0.9965952930803752
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 228,
+            "latencyMs": 423,
             "usage": {
               "input_tokens": 186,
               "output_tokens": 1
@@ -4206,7 +4995,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 456,
+            "latencyMs": 265,
             "usage": {
               "input_tokens": 213,
               "output_tokens": 0
@@ -4228,7 +5017,7 @@
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 582,
+            "latencyMs": 603,
             "usage": {
               "input_tokens": 124,
               "output_tokens": 68
@@ -4261,7 +5050,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 185,
+            "latencyMs": 211,
             "usage": {
               "input_tokens": 391,
               "output_tokens": 43
@@ -4278,12 +5067,34 @@
                 "expected": "safe",
                 "actual": "safe",
                 "correct": true,
-                "probability": 0.9354862986351318
+                "probability": 0.919203319141313
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 329,
+            "latencyMs": 399,
+            "usage": {
+              "input_tokens": 107,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "verdict": {
+                "expected": "safe",
+                "actual": "safe",
+                "correct": true,
+                "probability": 0.9903005632943211
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 411,
             "usage": {
               "input_tokens": 107,
               "output_tokens": 0
@@ -4294,18 +5105,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "verdict": {
                 "expected": "safe",
                 "actual": "safe",
                 "correct": true,
-                "probability": 0.9389917882343155
+                "probability": 0.9389905992945714
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 238,
+            "latencyMs": 506,
             "usage": {
               "input_tokens": 156,
               "output_tokens": 1
@@ -4327,7 +5138,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 285,
+            "latencyMs": 359,
             "usage": {
               "input_tokens": 185,
               "output_tokens": 0
@@ -4344,12 +5155,12 @@
                 "expected": "safe",
                 "actual": "safe",
                 "correct": true,
-                "probability": 0.7268
+                "probability": 0.7203
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 597,
+            "latencyMs": 807,
             "usage": {
               "input_tokens": 94,
               "output_tokens": 68
@@ -4382,7 +5193,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 291,
+            "latencyMs": 220,
             "usage": {
               "input_tokens": 411,
               "output_tokens": 44
@@ -4399,12 +5210,34 @@
                 "expected": "harmful",
                 "actual": "harmful",
                 "correct": true,
-                "probability": 0.9990661624425794
+                "probability": 0.9988466293563254
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 255,
+            "latencyMs": 296,
+            "usage": {
+              "input_tokens": 127,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "verdict": {
+                "expected": "harmful",
+                "actual": "harmful",
+                "correct": true,
+                "probability": 0.9962548977932277
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 307,
             "usage": {
               "input_tokens": 127,
               "output_tokens": 0
@@ -4415,18 +5248,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "verdict": {
                 "expected": "harmful",
                 "actual": "harmful",
                 "correct": true,
-                "probability": 0.9972941183883215
+                "probability": 0.9972751518285441
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 244,
+            "latencyMs": 308,
             "usage": {
               "input_tokens": 176,
               "output_tokens": 1
@@ -4448,7 +5281,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 541,
+            "latencyMs": 277,
             "usage": {
               "input_tokens": 205,
               "output_tokens": 0
@@ -4465,12 +5298,12 @@
                 "expected": "harmful",
                 "actual": "harmful",
                 "correct": true,
-                "probability": 0.9767
+                "probability": 0.9764
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 562,
+            "latencyMs": 1116,
             "usage": {
               "input_tokens": 114,
               "output_tokens": 69
@@ -4503,7 +5336,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 208,
+            "latencyMs": 256,
             "usage": {
               "input_tokens": 372,
               "output_tokens": 45
@@ -4520,12 +5353,34 @@
                 "expected": "billing",
                 "actual": "billing",
                 "correct": true,
-                "probability": 0.9994956000359394
+                "probability": 0.9993820685512376
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 263,
+            "latencyMs": 326,
+            "usage": {
+              "input_tokens": 87,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "team": {
+                "expected": "billing",
+                "actual": "billing",
+                "correct": true,
+                "probability": 0.9941445756304964
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 340,
             "usage": {
               "input_tokens": 87,
               "output_tokens": 0
@@ -4536,18 +5391,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "team": {
                 "expected": "billing",
                 "actual": "billing",
                 "correct": true,
-                "probability": 0.9981883683678374
+                "probability": 0.9981884384192738
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 259,
+            "latencyMs": 384,
             "usage": {
               "input_tokens": 133,
               "output_tokens": 1
@@ -4569,7 +5424,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 247,
+            "latencyMs": 424,
             "usage": {
               "input_tokens": 161,
               "output_tokens": 0
@@ -4586,15 +5441,15 @@
                 "expected": "billing",
                 "actual": "billing",
                 "correct": true,
-                "probability": 0.9382
+                "probability": 0.9401
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 646,
+            "latencyMs": 624,
             "usage": {
               "input_tokens": 68,
-              "output_tokens": 74
+              "output_tokens": 73
             },
             "skipped": null,
             "error": null
@@ -4624,7 +5479,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 266,
+            "latencyMs": 210,
             "usage": {
               "input_tokens": 372,
               "output_tokens": 45
@@ -4641,12 +5496,34 @@
                 "expected": "technical",
                 "actual": "technical",
                 "correct": true,
-                "probability": 0.9997268627544
+                "probability": 0.9997828578030493
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 258,
+            "latencyMs": 405,
+            "usage": {
+              "input_tokens": 86,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "team": {
+                "expected": "technical",
+                "actual": "technical",
+                "correct": true,
+                "probability": 0.9986157412039309
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 406,
             "usage": {
               "input_tokens": 86,
               "output_tokens": 0
@@ -4657,18 +5534,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "team": {
                 "expected": "technical",
                 "actual": "technical",
                 "correct": true,
-                "probability": 0.9986749370571973
+                "probability": 0.9982119800618512
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 228,
+            "latencyMs": 388,
             "usage": {
               "input_tokens": 133,
               "output_tokens": 1
@@ -4690,7 +5567,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 280,
+            "latencyMs": 566,
             "usage": {
               "input_tokens": 160,
               "output_tokens": 0
@@ -4707,15 +5584,15 @@
                 "expected": "technical",
                 "actual": "technical",
                 "correct": true,
-                "probability": 0.9853
+                "probability": 0.985
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 666,
+            "latencyMs": 650,
             "usage": {
               "input_tokens": 68,
-              "output_tokens": 73
+              "output_tokens": 71
             },
             "skipped": null,
             "error": null
@@ -4745,7 +5622,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 263,
+            "latencyMs": 218,
             "usage": {
               "input_tokens": 385,
               "output_tokens": 45
@@ -4762,12 +5639,34 @@
                 "expected": "technical",
                 "actual": "technical",
                 "correct": true,
-                "probability": 0.8138862358590653
+                "probability": 0.8491301431915235
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 275,
+            "latencyMs": 264,
+            "usage": {
+              "input_tokens": 99,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "team": {
+                "expected": "technical",
+                "actual": "technical",
+                "correct": true,
+                "probability": 0.7713158681060331
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 371,
             "usage": {
               "input_tokens": 99,
               "output_tokens": 0
@@ -4778,18 +5677,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "team": {
                 "expected": "technical",
                 "actual": "technical",
                 "correct": true,
-                "probability": 0.9206107633857861
+                "probability": 0.909988572940632
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 387,
+            "latencyMs": 294,
             "usage": {
               "input_tokens": 146,
               "output_tokens": 1
@@ -4811,7 +5710,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 252,
+            "latencyMs": 335,
             "usage": {
               "input_tokens": 172,
               "output_tokens": 0
@@ -4828,15 +5727,15 @@
                 "expected": "technical",
                 "actual": "technical",
                 "correct": true,
-                "probability": 0.64
+                "probability": 0.6439
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 569,
+            "latencyMs": 609,
             "usage": {
               "input_tokens": 81,
-              "output_tokens": 69
+              "output_tokens": 74
             },
             "skipped": null,
             "error": null
@@ -4866,7 +5765,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 208,
+            "latencyMs": 300,
             "usage": {
               "input_tokens": 382,
               "output_tokens": 45
@@ -4883,12 +5782,34 @@
                 "expected": "account",
                 "actual": "account",
                 "correct": true,
-                "probability": 0.8879241608031412
+                "probability": 0.8805051933946814
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 271,
+            "latencyMs": 408,
+            "usage": {
+              "input_tokens": 100,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "team": {
+                "expected": "account",
+                "actual": "account",
+                "correct": true,
+                "probability": 0.9781616983877062
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 302,
             "usage": {
               "input_tokens": 100,
               "output_tokens": 0
@@ -4899,18 +5820,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "team": {
                 "expected": "account",
                 "actual": "account",
                 "correct": true,
-                "probability": 0.9907278123219564
+                "probability": 0.9907281478881175
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 227,
+            "latencyMs": 292,
             "usage": {
               "input_tokens": 143,
               "output_tokens": 1
@@ -4932,7 +5853,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 734,
+            "latencyMs": 377,
             "usage": {
               "input_tokens": 171,
               "output_tokens": 0
@@ -4954,7 +5875,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 564,
+            "latencyMs": 611,
             "usage": {
               "input_tokens": 78,
               "output_tokens": 74
@@ -4987,7 +5908,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 250,
+            "latencyMs": 185,
             "usage": {
               "input_tokens": 334,
               "output_tokens": 61
@@ -5004,12 +5925,34 @@
                 "expected": "economy",
                 "actual": "economy",
                 "correct": true,
-                "probability": 0.9886491660742165
+                "probability": 0.9804251959455565
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 547,
+            "latencyMs": 485,
+            "usage": {
+              "input_tokens": 65,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "section": {
+                "expected": "economy",
+                "actual": "economy",
+                "correct": true,
+                "probability": 0.9967467397879861
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 302,
             "usage": {
               "input_tokens": 65,
               "output_tokens": 0
@@ -5020,18 +5963,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "section": {
                 "expected": "economy",
                 "actual": "economy",
                 "correct": true,
-                "probability": 0.9979555406537435
+                "probability": 0.9979556204423403
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 295,
+            "latencyMs": 415,
             "usage": {
               "input_tokens": 111,
               "output_tokens": 1
@@ -5053,7 +5996,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 243,
+            "latencyMs": 291,
             "usage": {
               "input_tokens": 139,
               "output_tokens": 0
@@ -5070,12 +6013,12 @@
                 "expected": "economy",
                 "actual": "economy",
                 "correct": true,
-                "probability": 0.9431
+                "probability": 0.9425
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 580,
+            "latencyMs": 672,
             "usage": {
               "input_tokens": 48,
               "output_tokens": 89
@@ -5108,7 +6051,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 286,
+            "latencyMs": 204,
             "usage": {
               "input_tokens": 335,
               "output_tokens": 59
@@ -5125,12 +6068,34 @@
                 "expected": "sports",
                 "actual": "sports",
                 "correct": true,
-                "probability": 0.9940884924801112
+                "probability": 0.999433532227925
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 294,
+            "latencyMs": 361,
+            "usage": {
+              "input_tokens": 65,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "section": {
+                "expected": "sports",
+                "actual": "sports",
+                "correct": true,
+                "probability": 0.992295893849208
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 513,
             "usage": {
               "input_tokens": 65,
               "output_tokens": 0
@@ -5141,18 +6106,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "section": {
                 "expected": "sports",
                 "actual": "sports",
                 "correct": true,
-                "probability": 0.9963330818641802
+                "probability": 0.9959615595798881
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 231,
+            "latencyMs": 750,
             "usage": {
               "input_tokens": 110,
               "output_tokens": 1
@@ -5174,7 +6139,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 285,
+            "latencyMs": 451,
             "usage": {
               "input_tokens": 138,
               "output_tokens": 0
@@ -5191,12 +6156,12 @@
                 "expected": "sports",
                 "actual": "sports",
                 "correct": true,
-                "probability": 0.9507
+                "probability": 0.9495
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 621,
+            "latencyMs": 612,
             "usage": {
               "input_tokens": 47,
               "output_tokens": 88
@@ -5229,7 +6194,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 244,
+            "latencyMs": 220,
             "usage": {
               "input_tokens": 331,
               "output_tokens": 18
@@ -5246,12 +6211,34 @@
                 "expected": "very negative",
                 "actual": "very negative",
                 "correct": true,
-                "probability": 0.9522466394484225
+                "probability": 0.9687011576483862
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 252,
+            "latencyMs": 264,
+            "usage": {
+              "input_tokens": 71,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "sentiment": {
+                "expected": "very negative",
+                "actual": "very negative",
+                "correct": true,
+                "probability": 0.9734047431839102
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 306,
             "usage": {
               "input_tokens": 71,
               "output_tokens": 0
@@ -5262,18 +6249,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "sentiment": {
                 "expected": "very negative",
                 "actual": "very negative",
                 "correct": true,
-                "probability": 0.940513727625911
+                "probability": 0.9405146086999298
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 221,
+            "latencyMs": 287,
             "usage": {
               "input_tokens": 113,
               "output_tokens": 1
@@ -5295,7 +6282,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 483,
+            "latencyMs": 290,
             "usage": {
               "input_tokens": 142,
               "output_tokens": 0
@@ -5312,15 +6299,15 @@
                 "expected": "very negative",
                 "actual": "very negative",
                 "correct": true,
-                "probability": 0.923
+                "probability": 0.9211
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 591,
+            "latencyMs": 658,
             "usage": {
               "input_tokens": 47,
-              "output_tokens": 119
+              "output_tokens": 120
             },
             "skipped": null,
             "error": null
@@ -5345,12 +6332,12 @@
                 "expected": "very negative",
                 "actual": "very negative",
                 "correct": true,
-                "probability": 0.98
+                "probability": 0.97
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 206,
+            "latencyMs": 233,
             "usage": {
               "input_tokens": 340,
               "output_tokens": 18
@@ -5367,12 +6354,34 @@
                 "expected": "very negative",
                 "actual": "very negative",
                 "correct": true,
-                "probability": 0.6753506108014905
+                "probability": 0.7487887344151403
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 460,
+            "latencyMs": 335,
+            "usage": {
+              "input_tokens": 80,
+              "output_tokens": 0
+            },
+            "skipped": null,
+            "error": null
+          },
+          {
+            "model": "d1Ultra",
+            "provider": "liquid",
+            "modelId": "d1-ultra",
+            "grades": {
+              "sentiment": {
+                "expected": "very negative",
+                "actual": "very negative",
+                "correct": true,
+                "probability": 0.670969455538437
+              }
+            },
+            "correct": 1,
+            "graded": 1,
+            "latencyMs": 308,
             "usage": {
               "input_tokens": 80,
               "output_tokens": 0
@@ -5383,18 +6392,18 @@
           {
             "model": "decider",
             "provider": "perplexity",
-            "modelId": "pplx-decider-v1.1-27b",
+            "modelId": "pplx-decider-v1.2",
             "grades": {
               "sentiment": {
                 "expected": "very negative",
                 "actual": "very negative",
                 "correct": true,
-                "probability": 0.7925934085011668
+                "probability": 0.7925975483840192
               }
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 225,
+            "latencyMs": 316,
             "usage": {
               "input_tokens": 122,
               "output_tokens": 1
@@ -5416,7 +6425,7 @@
             },
             "correct": 1,
             "graded": 1,
-            "latencyMs": 246,
+            "latencyMs": 401,
             "usage": {
               "input_tokens": 151,
               "output_tokens": 0
@@ -5433,12 +6442,12 @@
                 "expected": "very negative",
                 "actual": "negative",
                 "correct": false,
-                "probability": 0.4755
+                "probability": 0.4775
               }
             },
             "correct": 0,
             "graded": 1,
-            "latencyMs": 580,
+            "latencyMs": 599,
             "usage": {
               "input_tokens": 56,
               "output_tokens": 126
