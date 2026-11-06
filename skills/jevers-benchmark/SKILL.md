@@ -24,7 +24,7 @@ const { benchmark: report } = await Jevers.new()
 
 No model is attached to the outer builder; the plugin attaches each one to a fork of the request.
 
-- `models`: shortcut names (`jev`, `d1`, `decider`, `glide`, `decision1`, `luna`, `kev`, `clef`, `clefFlash`) or `{ name, attach: jevers => jevers.local({ url }) }` for anything needing options.
+- `models`: shortcut names (`jev`, `d1`, `d1Ultra`, `decider`, `glide`, `decision1`, `luna`, `kev`, `clef`, `clefFlash`) or `{ name, attach: jevers => jevers.local({ url }) }` for anything needing options.
 - `expected`: `{ question: answer }`. `true`/`false` for `noul`, an option for `choice`, a level for `score`. Not every question needs an expected answer; only listed ones are graded.
 
 Each model runs on its own, sequentially, without fallback. `report` is `{ expected, results }`, one result per model:

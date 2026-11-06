@@ -1,6 +1,6 @@
 import { test, afterEach, mock } from 'node:test';
 import assert from 'node:assert/strict';
-import { TypeSafe, Liquid, Perplexity, Fastino, Azure, Cloudflare, Local } from '../lib/providers/system-one.js';
+import { TypeSafe, OpenRouter, Liquid, Perplexity, Fastino, Azure, Cloudflare, Local } from '../lib/providers/system-one.js';
 import { OpenAIDecisions } from '../lib/providers/openai.js';
 import { PNG, WAV, setKeys, stubFetch, systemOneOk } from './helpers.js';
 
@@ -69,14 +69,26 @@ test('Liquid sends images as a top-level array', async () => {
     assert.equal(calls[0].body.state, 'Payouts failing for 3 days');
 });
 
-test('Perplexity appends images to the state as image_url parts', async () => {
-    const calls = stubFetch(systemOneOk({}));
-    await new Perplexity().decide({ model: 'pplx', parts: [...text, image], questions });
-    assert.deepEqual(calls[0].body.state, [
-        'Payouts failing for 3 days',
-        { type: 'image_url', image_url: { url: image.dataUrl } },
-    ]);
-    assert.equal(calls[0].body.images, undefined);
+for (const Provider of [Perplexity, OpenRouter]) {
+    test(`${Provider.name} appends images to the state as image_url parts`, async () => {
+        const calls = stubFetch(systemOneOk({}));
+        await new Provider().decide({ model: 'decider', parts: [...text, image], questions });
+        assert.deepEqual(calls[0].body.state, [
+            'Payouts failing for 3 days',
+            { type: 'image_url', image_url: { url: image.dataUrl } },
+        ]);
+        assert.equal(calls[0].body.images, undefined);
+    });
+}
+
+test('OpenRouter posts System One with a bearer token', async () => {
+    const calls = stubFetch(systemOneOk({ urgent: { type: 'noul', noul: 0.9 } }));
+    const { answers } = await new OpenRouter().decide({ model: '~typesafe/jev-latest', parts: text, questions });
+    assert.equal(calls[0].url, 'https://openrouter.ai/api/v1/systemone');
+    assert.equal(calls[0].headers.Authorization, 'Bearer or-key');
+    assert.equal(calls[0].body.model, '~typesafe/jev-latest');
+    assert.equal(calls[0].body.state, 'Payouts failing for 3 days');
+    assert.equal(answers.urgent.noul, 0.9);
 });
 
 test('Fastino uses X-API-Key, stringifies instructions and remaps score', async () => {

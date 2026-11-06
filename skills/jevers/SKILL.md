@@ -87,9 +87,10 @@ Models that cannot take the input's modalities are skipped. If none can, `decide
 
 | Method | Native route | Input | `mix` routes |
 |---|---|---|---|
-| `.jev()` | TypeSafe `jev-latest` | text, image | `openrouter` (text) |
-| `.d1()` | Liquid `d1` | text, image | `openrouter` (text) |
-| `.decider()` | Perplexity `pplx-decider-v1.1-27b` | text, image | `openrouter` (text) |
+| `.jev()` | TypeSafe `jev-latest` | text, image | `openrouter` |
+| `.d1()` | Liquid `d1` | text, image | `openrouter` |
+| `.d1Ultra()` | Liquid `d1-ultra` | text, image | `openrouter` |
+| `.decider()` | Perplexity `pplx-decider-v1.2` | text, image | `openrouter` |
 | `.glide()` | Fastino `fastino/GLiDE` | text | |
 | `.decision1()` | Azure AI Foundry deployment | text | `openrouter` |
 | `.luna()` | OpenAI `gpt-6-luna` | text, image | |
@@ -193,7 +194,7 @@ To compare models on labeled data, use the `jevers-benchmark` skill.
 - Threshold on `probabilities` (or `noul`), not on `choice`. A 0.55/0.45 split still returns the top option as `choice`. Pick the threshold from what a wrong answer costs.
 - Write criteria descriptions for `choice` and `noul` when the option names alone are ambiguous; they are part of what the model judges.
 - Order `score` levels from lowest to highest. `probabilities` is keyed by level index, not by level name.
-- Attach at least one image-capable model (`jev`, `d1`, `decider`, `luna`, `clef`, `clefFlash`) before `addImage()`; text-only models are skipped, not failed.
+- Attach at least one image-capable model (`jev`, `d1`, `d1Ultra`, `decider`, `luna`, `clef`, `clefFlash`) before `addImage()`; text-only models are skipped, not failed.
 - Attach a fallback from a different provider when availability matters.
 - Handle `{ type: 'refusal' }` when `luna` is in the chain.
 - Keep keys in the environment. Never hardcode them.

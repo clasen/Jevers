@@ -66,9 +66,10 @@ Fields per answer type:
 
 | Method | Native route | Input | `mix` routes |
 |---|---|---|---|
-| `.jev()` | TypeSafe `jev-latest` | text, image | `openrouter` (text) |
-| `.d1()` | Liquid `d1` | text, image | `openrouter` (text) |
-| `.decider()` | Perplexity `pplx-decider-v1.1-27b` | text, image | `openrouter` (text) |
+| `.jev()` | TypeSafe `jev-latest` | text, image | `openrouter` |
+| `.d1()` | Liquid `d1` | text, image | `openrouter` |
+| `.d1Ultra()` | Liquid `d1-ultra` | text, image | `openrouter` |
+| `.decider()` | Perplexity `pplx-decider-v1.2` | text, image | `openrouter` |
 | `.glide()` | Fastino `fastino/GLiDE` | text | |
 | `.decision1()` | Azure AI Foundry deployment | text | `openrouter` |
 | `.luna()` | OpenAI `gpt-6-luna` | text, image | |
