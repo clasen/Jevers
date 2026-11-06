@@ -1,6 +1,6 @@
 import { test, afterEach, mock } from 'node:test';
 import assert from 'node:assert/strict';
-import { TypeSafe, OpenRouter, Liquid, Perplexity, Fastino, Azure, Cloudflare, Local } from '../lib/providers/system-one.js';
+import { TypeSafe, OpenRouter, Liquid, Perplexity, Cloudflare, Local } from '../lib/providers/system-one.js';
 import { OpenAIDecisions } from '../lib/providers/openai.js';
 import { PNG, WAV, setKeys, stubFetch, systemOneOk } from './helpers.js';
 
@@ -89,32 +89,6 @@ test('OpenRouter posts System One with a bearer token', async () => {
     assert.equal(calls[0].body.model, '~typesafe/jev-latest');
     assert.equal(calls[0].body.state, 'Payouts failing for 3 days');
     assert.equal(answers.urgent.noul, 0.9);
-});
-
-test('Fastino uses X-API-Key, stringifies instructions and remaps score', async () => {
-    const calls = stubFetch(systemOneOk({
-        severity: { type: 'score', score: 2, expected_level: 1.6, probabilities: { 0: 0.1, 1: 0.2, 2: 0.7 }, confidence: 0.5 },
-    }));
-    const objectQuestions = { severity: { ...questions.severity, instructions: { ask: 'How bad?' } } };
-    const { answers } = await new Fastino().decide({ model: 'fastino/GLiDE', parts: text, questions: objectQuestions });
-    assert.equal(calls[0].headers['X-API-Key'], 'fa-key');
-    assert.equal(calls[0].body.questions.severity.instructions, '{"ask":"How bad?"}');
-    assert.equal(answers.severity.score, 1.6);
-});
-
-test('Azure targets the Foundry endpoint with the deployment as model', async () => {
-    const calls = stubFetch(systemOneOk({}));
-    await new Azure().decide({ model: 'microsoft-decision-1', parts: text, questions });
-    assert.equal(calls[0].url, 'https://my-foundry.services.ai.azure.com/providers/microsoft/v1/systemone');
-    assert.equal(calls[0].headers['api-key'], 'az-key');
-    assert.equal(calls[0].body.model, 'my-decision');
-});
-
-test('Azure reports every missing setting', () => {
-    const azure = new Azure({ apiKey: 'k' });
-    azure.baseUrl = undefined;
-    azure.deployment = undefined;
-    assert.deepEqual(azure.missingConfig(), ['AZURE_ENDPOINT', 'AZURE_DECISION_DEPLOYMENT']);
 });
 
 test('Cloudflare runs the model on Workers AI and unwraps the result envelope', async () => {

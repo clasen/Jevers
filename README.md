@@ -4,7 +4,7 @@ Decision models take some context and a question with fixed options, and return 
 
 Use it where your app makes a call with a known set of outcomes, like routing a support ticket or checking a message before it reaches an LLM. Since you get a distribution and not only a label, you pick the threshold. If a provider is down or rate limited, the next model you attached answers.
 
-Supported: TypeSafe Jev, Liquid d1, Perplexity pplx-decider, Fastino GLiDE, Microsoft Decision-1 (Azure AI Foundry), OpenAI Decisions (`gpt-6-luna`), Cloudflare Clef, Kev and other OpenRouter routes, and a local llama-server running d1.
+Supported: TypeSafe Jev, Liquid d1 and d1-ultra, Perplexity pplx-decider, OpenAI Decisions (`gpt-6-luna`), Cloudflare Clef, the OpenRouter routes for Jev, d1 and pplx-decider, and a local llama-server running d1.
 
 Zero dependencies. Node 20+.
 
@@ -24,7 +24,7 @@ import { Jevers } from 'jevers';
 
 const result = await Jevers.new()
     .jev()        // main model
-    .glide()      // fallback
+    .d1()         // fallback
     .addText('Help! My payouts have been failing for 3 days.')
     .addJSON({ plan: 'pro', mrr: 1200 })
     .choice('department', 'Which team should handle this ticket?', {
@@ -70,17 +70,12 @@ Fields per answer type:
 | `.d1()` | Liquid `d1` | text, image | `openrouter` |
 | `.d1Ultra()` | Liquid `d1-ultra` | text, image | `openrouter` |
 | `.decider()` | Perplexity `pplx-decider-v1.2` | text, image | `openrouter` |
-| `.glide()` | Fastino `fastino/GLiDE` | text | |
-| `.decision1()` | Azure AI Foundry deployment | text | `openrouter` |
 | `.luna()` | OpenAI `gpt-6-luna` | text, image | |
-| `.kev()` | OpenRouter `jaredpalmer/kev-4b` | text | |
 | `.clef()` | Cloudflare Workers AI `clef` | text, image | |
 | `.clefFlash()` | Cloudflare Workers AI `clef-flash` | text, image | |
 | `.local({ url, model, modalities })` | llama-server `/v1/systemone` | as declared (`text`, `image`, `audio`) | |
 
 Pin a version on the native route with `.jev({ model: 'jev-1.13.0' })`.
-
-Kev 27B has no hosted route; serve it locally and attach it with `.local({ url, model: 'kev:27b' })`.
 
 ## Fallback
 
@@ -89,7 +84,7 @@ Models are tried in the order you attach them. Retryable statuses (408, 425, 429
 `chain()` attaches the same order from shortcut names, which helps when the list comes from configuration:
 
 ```js
-Jevers.new().chain('jev', 'd1', 'glide');                // same as .jev().d1().glide()
+Jevers.new().chain('jev', 'd1', 'decider');              // same as .jev().d1().decider()
 Jevers.new().chain(...process.env.DECISION_MODELS.split(','));
 ```
 
@@ -106,7 +101,6 @@ Jevers.new().jev({ mix: { typesafe: false, openrouter: true } }); // OpenRouter 
 
 ```js
 const result = await Jevers.new()
-    .glide()      // text only: skipped when there is an image
     .jev()
     .d1()
     .luna()
@@ -132,14 +126,12 @@ API keys come from the environment, or per provider through `providers`:
 | OpenRouter | `OPENROUTER_API_KEY` |
 | Liquid | `LIQUID_API_KEY` |
 | Perplexity | `PPLX_API_KEY` |
-| Fastino | `FASTINO_API_KEY` |
 | OpenAI | `OPENAI_API_KEY` |
-| Azure | `AZURE_API_KEY`, `AZURE_ENDPOINT`, `AZURE_DECISION_DEPLOYMENT` |
 | Cloudflare | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` |
 
 ```js
 Jevers.new({
-    providers: { typesafe: { apiKey: '…' }, azure: { apiKey: '…', endpoint: '…', deployment: '…' } },
+    providers: { typesafe: { apiKey: '…' }, cloudflare: { apiKey: '…', accountId: '…' } },
     config: { retry: { retries: 2, baseDelayMs: 500 }, debug: true },
 });
 ```
@@ -213,7 +205,7 @@ import { Jevers, UnsupportedInputError } from 'jevers';
 try {
     const result = await Jevers.new()
         .jev()
-        .glide()
+        .d1()
         .addText(ticket.body)
         .noul('urgent', 'Does this need a reply within one hour?', {
             true: 'Money is not moving, the product is down, or data is at risk',
@@ -261,7 +253,7 @@ const timing = {
     },
 };
 
-await Jevers.new().use(timing).jev().glide().addText(text).noul('spam', 'Is this spam?').decide();
+await Jevers.new().use(timing).jev().d1().addText(text).noul('spam', 'Is this spam?').decide();
 ```
 
 ## Benchmark
@@ -291,7 +283,7 @@ import { benchmark, summarize } from 'jevers/plugins/benchmark';
 const cases = [];
 for (const ticket of labeledTickets) {
     const { benchmark: report } = await Jevers.new()
-        .use(benchmark({ models: ['jev', 'd1', 'glide'], expected: { team: ticket.team } }))
+        .use(benchmark({ models: ['jev', 'd1', 'decider'], expected: { team: ticket.team } }))
         .addText(ticket.body)
         .choice('team', 'Which team should handle this ticket?', ['billing', 'technical', 'account', 'sales'])
         .decide();
@@ -342,7 +334,7 @@ node demo/benchmark.js jev d1 decider --category chess,driving --out report.json
 
 ### Results from 6 November 2026
 
-One run of the suite (39 scenarios, 40 graded questions) on each model's native route; `kev` goes through OpenRouter. The full report is in [`demo/results/benchmark-2026-11-06.json`](demo/results/benchmark-2026-11-06.json).
+One run of the suite (39 scenarios, 40 graded questions) on each model's native route. The full report is in [`demo/results/benchmark-2026-11-06.json`](demo/results/benchmark-2026-11-06.json).
 
 | Model | Correct | Mean p(expected) | Answered | Mean latency |
 |---|---|---|---|---|
@@ -351,30 +343,28 @@ One run of the suite (39 scenarios, 40 graded questions) on each model's native 
 | `jev` | 36/40 (90%) | 0.84 | 39/39 | 230 ms |
 | `luna` | 36/40 (90%) | 0.82 | 39/39 | 416 ms |
 | `d1` | 35/40 (88%) | 0.80 | 39/39 | 326 ms |
-| `kev` | 24/35 (69%) | 0.63 | 34/39 | 741 ms |
 
 Accuracy by category:
 
-| Category | `d1Ultra` | `decider` | `jev` | `luna` | `d1` | `kev` |
-|---|---|---|---|---|---|---|
-| quoridor | 67% | 67% | 33% | 67% | 67% | 33% |
-| chess | 75% | 75% | 75% | 50% | 75% | 25% |
-| tic-tac-toe | 100% | 33% | 67% | 67% | 100% | 0% |
-| driving | 100% | 100% | 100% | 100% | 80% | – |
-| compaction | 100% | 100% | 100% | 100% | 80% | 100% |
-| spam | 100% | 100% | 100% | 100% | 100% | 83% |
-| safety | 100% | 100% | 100% | 100% | 83% | 83% |
-| categorization | 100% | 100% | 100% | 100% | 100% | 88% |
+| Category | `d1Ultra` | `decider` | `jev` | `luna` | `d1` |
+|---|---|---|---|---|---|
+| quoridor | 67% | 67% | 33% | 67% | 67% |
+| chess | 75% | 75% | 75% | 50% | 75% |
+| tic-tac-toe | 100% | 33% | 67% | 67% | 100% |
+| driving | 100% | 100% | 100% | 100% | 80% |
+| compaction | 100% | 100% | 100% | 100% | 80% |
+| spam | 100% | 100% | 100% | 100% | 100% |
+| safety | 100% | 100% | 100% | 100% | 83% |
+| categorization | 100% | 100% | 100% | 100% | 100% |
 
 Notes on the run:
 
 - `d1Ultra` missed only `quoridor-must-block` and the back-rank evaluation, which most models missed too.
 - Every model missed `quoridor-must-block`: with the opponent one step from its goal row, each one picked `move e3` instead of the wall at `d1h` that blocks it.
-- All six found the back-rank mate, but only `decider` called the position `White is winning`; the rest said `equal`.
-- Only `d1` and `d1Ultra` found the fork in `tictactoe-fork`; the other four picked `7`, which makes one threat instead of the two that `1` makes.
+- All five found the back-rank mate, but only `decider` called the position `White is winning`; the rest said `equal`.
+- Only `d1` and `d1Ultra` found the fork in `tictactoe-fork`; the other three picked `7`, which makes one threat instead of the two that `1` makes.
 - `decider` (now `pplx-decider-v1.2`) played `Nf3` instead of the scholar's mate `Qxf7#` and missed the block in `tictactoe-block`.
 - `d1` steered right on the left curve again, with 0.25 on `left`. It also called the injection hidden in a pasted email `safe` and kept a tool log with a buried failure instead of summarizing it, both with about 0.5 on the right answer.
-- `kev` filed the CEO gift-card scam as `ham`, missed the hidden injection and read the sarcastic review as `negative`. It is text-only, so the five driving scenarios were skipped and its accuracy covers 35 questions.
 
 The sample is small: in chess one question moves the score by 25 points, and close calls can flip between runs. Latency was measured from one machine over the public internet.
 

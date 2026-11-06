@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Jevers is a zero-dependency Node.js library that wraps decision models (Jev, d1, pplx-decider, GLiDE, Decision-1, OpenAI Decisions) behind one chainable builder. It normalizes answers across providers, falls back between models, and routes multimodal input only to models that accept it.
+Jevers is a zero-dependency Node.js library that wraps decision models (Jev, d1, pplx-decider, Clef, OpenAI Decisions) behind one chainable builder. It normalizes answers across providers, falls back between models, and routes multimodal input only to models that accept it.
 
 ## Stack
 
@@ -20,7 +20,7 @@ Runs `node --test test/*.test.js`. All tests stub `fetch`; none hit the network.
 
 - `index.js`: `Jevers` class (builder, validation, fallback chain, retry) and `DEFAULT_CONFIG`, the only place for library defaults.
 - `lib/registry.js`: `SHORTCUTS`, the single source of model methods, routes and modalities.
-- `lib/providers/system-one.js`: `SystemOne` base and providers that speak System One (TypeSafe, OpenRouter, Liquid, Perplexity, Fastino, Azure, Local).
+- `lib/providers/system-one.js`: `SystemOne` base and providers that speak System One (TypeSafe, OpenRouter, Liquid, Perplexity, Cloudflare, Local).
 - `lib/providers/openai.js`: OpenAI Decisions, translated to and from System One.
 - `lib/input.js`: input parts, media loading and MIME detection, `state` building.
 - `lib/answers.js`: answer normalization.

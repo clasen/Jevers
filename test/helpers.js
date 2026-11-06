@@ -9,11 +9,7 @@ export function setKeys() {
         OPENROUTER_API_KEY: 'or-key',
         LIQUID_API_KEY: 'lq-key',
         PPLX_API_KEY: 'px-key',
-        FASTINO_API_KEY: 'fa-key',
         OPENAI_API_KEY: 'oa-key',
-        AZURE_API_KEY: 'az-key',
-        AZURE_ENDPOINT: 'https://my-foundry.services.ai.azure.com/',
-        AZURE_DECISION_DEPLOYMENT: 'my-decision',
         CLOUDFLARE_API_TOKEN: 'cf-token',
         CLOUDFLARE_ACCOUNT_ID: 'cf-account',
     });

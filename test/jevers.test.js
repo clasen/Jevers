@@ -7,6 +7,7 @@ setKeys();
 afterEach(() => mock.restoreAll());
 
 const fast = { config: { retry: { retries: 2, baseDelayMs: 1 } } };
+const LOCAL_URL = 'http://127.0.0.1:8080';
 const choiceOk = systemOneOk({
     department: { type: 'choice', choice: 'billing', probabilities: { billing: 0.88, technical: 0.12 }, confidence: 0.81 },
 });
@@ -38,16 +39,16 @@ test('decide returns normalized answers from the first model', async () => {
 
 test('falls back to the next model when one fails', async () => {
     const calls = stubFetch(() => ({ status: 400, json: { error: 'bad' } }), choiceOk);
-    const result = await ask(Jevers.new(fast).jev().glide()).decide();
+    const result = await ask(Jevers.new(fast).jev().d1()).decide();
     assert.equal(calls.length, 2);
-    assert.equal(calls[1].url, 'https://api.fastino.ai/v1/systemone');
-    assert.equal(result.provider, 'fastino');
+    assert.equal(calls[1].url, 'https://api.liquid.ai/decisions/v1/systemone');
+    assert.equal(result.provider, 'liquid');
 });
 
 test('falls back when a provider omits an answer', async () => {
     stubFetch(systemOneOk({}), choiceOk);
-    const result = await ask(Jevers.new(fast).jev().glide()).decide();
-    assert.equal(result.provider, 'fastino');
+    const result = await ask(Jevers.new(fast).jev().d1()).decide();
+    assert.equal(result.provider, 'liquid');
 });
 
 test('retries retryable statuses on the same model before falling back', async () => {
@@ -56,7 +57,7 @@ test('retries retryable statuses on the same model before falling back', async (
         () => ({ status: 503 }),
         choiceOk,
     );
-    const result = await ask(Jevers.new(fast).jev().glide()).decide();
+    const result = await ask(Jevers.new(fast).jev().d1()).decide();
     assert.equal(calls.length, 3);
     assert.ok(calls.every(c => c.url.includes('typesafe')));
     assert.equal(result.provider, 'typesafe');
@@ -64,20 +65,20 @@ test('retries retryable statuses on the same model before falling back', async (
 
 test('throws AggregateError when every model fails', async () => {
     stubFetch(() => ({ status: 400 }), () => ({ status: 401 }));
-    await assert.rejects(ask(Jevers.new(fast).jev().glide()).decide(), err =>
+    await assert.rejects(ask(Jevers.new(fast).jev().d1()).decide(), err =>
         err instanceof AggregateError && err.errors.map(e => e.status).join() === '400,401');
 });
 
 test('skips models that cannot take the input modality', async () => {
     const calls = stubFetch(choiceOk);
-    const result = await ask(Jevers.new(fast).glide().d1()).addImage(PNG).decide();
+    const result = await ask(Jevers.new(fast).local({ url: LOCAL_URL }).d1()).addImage(PNG).decide();
     assert.equal(calls.length, 1);
     assert.equal(result.provider, 'liquid');
     assert.deepEqual(calls[0].body.images, [`data:image/png;base64,${PNG.toString('base64')}`]);
 });
 
 test('throws UnsupportedInputError when no model takes the input', async () => {
-    await assert.rejects(ask(Jevers.new(fast).glide().decision1()).addImage(PNG).decide(), UnsupportedInputError);
+    await assert.rejects(ask(Jevers.new(fast).local({ url: LOCAL_URL })).addImage(PNG).decide(), UnsupportedInputError);
 });
 
 test('mix flags add OpenRouter routes or replace the native one', () => {
@@ -93,8 +94,8 @@ test('mix flags add OpenRouter routes or replace the native one', () => {
 
 test('chain attaches shortcuts in fallback order, like the fluent methods', () => {
     const routes = jevers => jevers.routes.map(r => `${r.provider.id}:${r.model}`);
-    const chained = Jevers.new({ mix: { openrouter: true } }).chain('jev', 'd1', 'glide');
-    const fluent = Jevers.new({ mix: { openrouter: true } }).jev().d1().glide();
+    const chained = Jevers.new({ mix: { openrouter: true } }).chain('jev', 'd1', 'decider');
+    const fluent = Jevers.new({ mix: { openrouter: true } }).jev().d1().decider();
     assert.deepEqual(routes(chained), routes(fluent));
     assert.equal(chained.routes[0].provider.id, 'typesafe');
 });
@@ -112,7 +113,7 @@ test('chain reports every missing API key at once and attaches nothing', () => {
     delete process.env.LIQUID_API_KEY;
     const jevers = Jevers.new();
     try {
-        assert.throws(() => jevers.chain('glide', 'jev', 'd1'), err =>
+        assert.throws(() => jevers.chain('decider', 'jev', 'd1'), err =>
             err instanceof MissingApiKeyError
             && err.missing.map(m => m.env).join() === 'TYPESAFE_API_KEY,LIQUID_API_KEY');
         assert.equal(jevers.routes.length, 0);
@@ -123,7 +124,7 @@ test('chain reports every missing API key at once and attaches nothing', () => {
 });
 
 test('chain rejects a shortcut that mix flags leave without routes', () => {
-    assert.throws(() => Jevers.new({ mix: { fastino: false } }).chain('jev', 'glide'), /"glide" resolved to no routes/);
+    assert.throws(() => Jevers.new({ mix: { liquid: false } }).chain('jev', 'd1'), /"d1" resolved to no routes/);
 });
 
 test('provider options override environment keys', async () => {
@@ -164,5 +165,5 @@ test('an aborted signal stops the chain instead of falling back', async () => {
         controller.abort();
         return { status: 503 };
     });
-    await assert.rejects(ask(Jevers.new(fast).jev().glide()).decide(controller.signal), { name: 'AbortError' });
+    await assert.rejects(ask(Jevers.new(fast).jev().d1()).decide(controller.signal), { name: 'AbortError' });
 });

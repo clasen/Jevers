@@ -1,8 +1,8 @@
 ---
 name: jevers
-description: Instructions for using the Jevers Node.js library to call decision models (TypeSafe Jev, Liquid d1, Perplexity pplx-decider, Fastino GLiDE, Microsoft Decision-1, OpenAI Decisions gpt-6-luna, Cloudflare Clef, Kev, local llama-server) through one chainable builder. Use when writing code that classifies, routes, screens or scores input with a fixed set of outcomes and needs probabilities, such as routing support tickets, yes/no checks, prompt-injection screening, severity scoring, context compaction triage, or image moderation, with fallback between providers. Also use when the user mentions "jevers", "Jevers", "decision model", "System One", "noul", or any of the models above.
+description: Instructions for using the Jevers Node.js library to call decision models (TypeSafe Jev, Liquid d1 and d1-ultra, Perplexity pplx-decider, OpenAI Decisions gpt-6-luna, Cloudflare Clef, local llama-server) through one chainable builder. Use when writing code that classifies, routes, screens or scores input with a fixed set of outcomes and needs probabilities, such as routing support tickets, yes/no checks, prompt-injection screening, severity scoring, context compaction triage, or image moderation, with fallback between providers. Also use when the user mentions "jevers", "Jevers", "decision model", "System One", "noul", or any of the models above.
 metadata:
-  tags: [decision-models, classification, routing, probabilities, fallback, multimodal, jev, d1, glide, openai-decisions]
+  tags: [decision-models, classification, routing, probabilities, fallback, multimodal, jev, d1, openai-decisions]
 ---
 
 # Jevers Library Skill
@@ -36,7 +36,7 @@ import { Jevers } from 'jevers';
 
 const result = await Jevers.new()
     .jev()        // main model
-    .glide()      // fallback
+    .d1()         // fallback
     .addText('Help! My payouts have been failing for 3 days.')
     .addJSON({ plan: 'pro', mrr: 1200 })
     .choice('department', 'Which team should handle this ticket?', {
@@ -91,10 +91,7 @@ Models that cannot take the input's modalities are skipped. If none can, `decide
 | `.d1()` | Liquid `d1` | text, image | `openrouter` |
 | `.d1Ultra()` | Liquid `d1-ultra` | text, image | `openrouter` |
 | `.decider()` | Perplexity `pplx-decider-v1.2` | text, image | `openrouter` |
-| `.glide()` | Fastino `fastino/GLiDE` | text | |
-| `.decision1()` | Azure AI Foundry deployment | text | `openrouter` |
 | `.luna()` | OpenAI `gpt-6-luna` | text, image | |
-| `.kev()` | OpenRouter `jaredpalmer/kev-4b` | text | |
 | `.clef()` | Cloudflare Workers AI `clef` | text, image | |
 | `.clefFlash()` | Cloudflare Workers AI `clef-flash` | text, image | |
 | `.local({ url, model, modalities })` | llama-server `/v1/systemone` | as declared (`text`, `image`, `audio`) | |
@@ -115,7 +112,7 @@ Models are tried in attach order. Statuses 408, 425, 429 and 5xx are retried on 
 `chain()` attaches shortcuts by name, useful when the list comes from configuration:
 
 ```js
-Jevers.new().chain('jev', 'd1', 'glide');                       // same as .jev().d1().glide()
+Jevers.new().chain('jev', 'd1', 'decider');                     // same as .jev().d1().decider()
 Jevers.new().chain(...process.env.DECISION_MODELS.split(','));
 ```
 
@@ -131,14 +128,12 @@ API keys come from the environment or `providers`. Jevers does not load `.env`; 
 | OpenRouter | `OPENROUTER_API_KEY` |
 | Liquid | `LIQUID_API_KEY` |
 | Perplexity | `PPLX_API_KEY` |
-| Fastino | `FASTINO_API_KEY` |
 | OpenAI | `OPENAI_API_KEY` |
-| Azure | `AZURE_API_KEY`, `AZURE_ENDPOINT`, `AZURE_DECISION_DEPLOYMENT` |
 | Cloudflare | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` |
 
 ```js
 Jevers.new({
-    providers: { typesafe: { apiKey: '…' }, azure: { apiKey: '…', endpoint: '…', deployment: '…' } },
+    providers: { typesafe: { apiKey: '…' }, cloudflare: { apiKey: '…', accountId: '…' } },
     config: { retry: { retries: 2, baseDelayMs: 500 }, debug: true },
 });
 ```
@@ -153,7 +148,7 @@ import { Jevers, UnsupportedInputError } from 'jevers';
 try {
     const result = await Jevers.new()
         .jev()
-        .glide()
+        .d1()
         .addText(ticket.body)
         .noul('urgent', 'Does this need a reply within one hour?')
         .decide(AbortSignal.timeout(3000));
@@ -194,7 +189,7 @@ To compare models on labeled data, use the `jevers-benchmark` skill.
 - Threshold on `probabilities` (or `noul`), not on `choice`. A 0.55/0.45 split still returns the top option as `choice`. Pick the threshold from what a wrong answer costs.
 - Write criteria descriptions for `choice` and `noul` when the option names alone are ambiguous; they are part of what the model judges.
 - Order `score` levels from lowest to highest. `probabilities` is keyed by level index, not by level name.
-- Attach at least one image-capable model (`jev`, `d1`, `d1Ultra`, `decider`, `luna`, `clef`, `clefFlash`) before `addImage()`; text-only models are skipped, not failed.
+- Every shortcut accepts images; a `.local()` server without `image` in `modalities` is skipped, not failed.
 - Attach a fallback from a different provider when availability matters.
 - Handle `{ type: 'refusal' }` when `luna` is in the chain.
 - Keep keys in the environment. Never hardcode them.

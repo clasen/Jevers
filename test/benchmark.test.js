@@ -53,18 +53,18 @@ test('benchmark runs every model on the same request and grades the answers', as
         }),
     );
     const { benchmark: report } = await spamCase(Jevers.new(fast)
-        .use(benchmark({ models: ['jev', 'glide'], expected: { spam: true, verdict: 'spam' } })))
+        .use(benchmark({ models: ['jev', 'd1'], expected: { spam: true, verdict: 'spam' } })))
         .decide();
 
-    assert.deepEqual(calls.map(c => new URL(c.url).hostname), ['api.typesafe.ai', 'api.fastino.ai']);
+    assert.deepEqual(calls.map(c => new URL(c.url).hostname), ['api.typesafe.ai', 'api.liquid.ai']);
     assert.deepEqual(calls[0].body.questions, calls[1].body.questions);
-    const [jev, glide] = report.results;
+    const [jev, d1] = report.results;
     assert.equal(jev.provider, 'typesafe');
     assert.equal(jev.correct, 2);
     assert.equal(jev.grades.verdict.probability, 0.7);
-    assert.equal(glide.correct, 0);
-    assert.equal(glide.grades.spam.probability, 0.3);
-    assert.equal(glide.grades.verdict.actual, 'phishing');
+    assert.equal(d1.correct, 0);
+    assert.equal(d1.grades.spam.probability, 0.3);
+    assert.equal(d1.grades.verdict.actual, 'phishing');
     assert.equal(typeof jev.latencyMs, 'number');
 });
 
@@ -79,16 +79,17 @@ test('benchmark grades score questions by the rounded level', async () => {
 });
 
 test('benchmark skips models that cannot see the input and records failures', async () => {
+    const textOnly = { name: 'local', attach: jevers => jevers.local({ url: 'http://127.0.0.1:8080' }) };
     const calls = stubFetch(() => ({ status: 500 }), systemOneOk({ stop: { type: 'noul', noul: 0.95 } }));
     const { benchmark: report } = await Jevers.new(fast)
-        .use(benchmark({ models: ['glide', 'decider', 'd1'], expected: { stop: true } }))
+        .use(benchmark({ models: [textOnly, 'decider', 'd1'], expected: { stop: true } }))
         .addImage(PNG)
         .noul('stop', 'Stop?')
         .decide();
 
     assert.equal(calls.length, 2);
-    const [glide, decider, d1] = report.results;
-    assert.match(glide.skipped, /No attached model accepts input/);
+    const [local, decider, d1] = report.results;
+    assert.match(local.skipped, /No attached model accepts input/);
     assert.match(decider.error.causes[0], /HTTP 500/);
     assert.equal(d1.correct, 1);
 });
@@ -101,12 +102,12 @@ test('benchmark validates models, keys and expected answers before calling any m
     await assert.rejects(spamCase(Jevers.new().use(benchmark({ models: ['jev'], expected: { verdict: 'junk' } }))).decide(), /not valid for choice/);
     await assert.rejects(spamCase(Jevers.new().use(benchmark({ models: ['jev'], expected: { other: true } }))).decide(), /unknown question/);
 
-    const saved = process.env.FASTINO_API_KEY;
-    delete process.env.FASTINO_API_KEY;
+    const saved = process.env.LIQUID_API_KEY;
+    delete process.env.LIQUID_API_KEY;
     try {
-        await assert.rejects(spamCase(Jevers.new().use(benchmark({ models: ['jev', 'glide'], expected: { spam: true } }))).decide(), MissingApiKeyError);
+        await assert.rejects(spamCase(Jevers.new().use(benchmark({ models: ['jev', 'd1'], expected: { spam: true } }))).decide(), MissingApiKeyError);
     } finally {
-        process.env.FASTINO_API_KEY = saved;
+        process.env.LIQUID_API_KEY = saved;
     }
     assert.equal(calls.length, 0);
 });
