@@ -1,6 +1,6 @@
 ---
 name: jevers
-description: Instructions for using the Jevers Node.js library to call decision models (TypeSafe Jev, Liquid d1 and d1-ultra, Perplexity pplx-decider, OpenAI Decisions gpt-6-luna, Cloudflare Clef, local llama-server) through one chainable builder. Use when writing code that classifies, routes, screens or scores input with a fixed set of outcomes and needs probabilities, such as routing support tickets, yes/no checks, prompt-injection screening, severity scoring, context compaction triage, or image moderation, with fallback between providers. Also use when the user mentions "jevers", "Jevers", "decision model", "System One", "noul", or any of the models above.
+description: Instructions for using the Jevers Node.js library to call decision models (TypeSafe Jev, Liquid d1, d1-ultra, d1.2 and d1.2-ultra, Perplexity pplx-decider, OpenAI Decisions gpt-6-luna, Cloudflare Clef, local llama-server) through one chainable builder. Use when writing code that classifies, routes, screens or scores input with a fixed set of outcomes and needs probabilities, such as routing support tickets, yes/no checks, prompt-injection screening, severity scoring, context compaction triage, or image moderation, with fallback between providers. Also use when the user mentions "jevers", "Jevers", "decision model", "System One", "noul", or any of the models above.
 metadata:
   tags: [decision-models, classification, routing, probabilities, fallback, multimodal, jev, d1, openai-decisions]
 ---
@@ -88,9 +88,13 @@ Models that cannot take the input's modalities are skipped. If none can, `decide
 | Method | Native route | Input | `mix` routes |
 |---|---|---|---|
 | `.jev()` | TypeSafe `jev-latest` | text, image | `openrouter` |
-| `.d1()` | Liquid `d1` | text, image | `openrouter` |
-| `.d1Ultra()` | Liquid `d1-ultra` | text, image | `openrouter` |
-| `.decider()` | Perplexity `pplx-decider-v1.2` | text, image | `openrouter` |
+| `.d1()` | Liquid `d1.2` | text, image | `openrouter` |
+| `.d1Ultra()` | Liquid `d1.2-ultra` | text, image | `openrouter` |
+| `.d10()` | Liquid `d1` | text, image | `openrouter` |
+| `.d10Ultra()` | Liquid `d1-ultra` | text, image | `openrouter` |
+| `.decider()` | Perplexity `pplx-decider-v1.3` | text, image | `openrouter` |
+| `.deciderFlash()` | Perplexity `pplx-decider-flash-v1.3` | text, image | `openrouter` |
+| `.decider12()` | Perplexity `pplx-decider-v1.2` | text, image | `openrouter` |
 | `.luna()` | OpenAI `gpt-6-luna` | text, image | |
 | `.clef()` | Cloudflare Workers AI `clef` | text, image | |
 | `.clefFlash()` | Cloudflare Workers AI `clef-flash` | text, image | |

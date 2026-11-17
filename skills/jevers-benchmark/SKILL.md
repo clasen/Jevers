@@ -1,6 +1,6 @@
 ---
 name: jevers-benchmark
-description: Guides comparing decision models with the Jevers benchmark plugin (`jevers/plugins/benchmark`), grading each model's answers against known correct ones and aggregating accuracy, mean probability, latency and tokens with `summarize()`. Use when the user wants to pick between Jev, d1, d1-ultra, pplx-decider, gpt-6-luna, Clef or a local model, evaluate them on labeled data, run the included scenario suite, or says "benchmark jevers", "compare decision models", "which decision model is best", or "evaluate models on my tickets". Do not use for plain Jevers integration; use the `jevers` skill for that.
+description: Guides comparing decision models with the Jevers benchmark plugin (`jevers/plugins/benchmark`), grading each model's answers against known correct ones and aggregating accuracy, mean probability, latency and tokens with `summarize()`. Use when the user wants to pick between Jev, d1, d1-ultra, d1.2, d1.2-ultra, pplx-decider, gpt-6-luna, Clef or a local model, evaluate them on labeled data, run the included scenario suite, or says "benchmark jevers", "compare decision models", "which decision model is best", or "evaluate models on my tickets". Do not use for plain Jevers integration; use the `jevers` skill for that.
 metadata:
   tags: [jevers, benchmark, evaluation, decision-models, accuracy, calibration]
 ---
@@ -24,7 +24,7 @@ const { benchmark: report } = await Jevers.new()
 
 No model is attached to the outer builder; the plugin attaches each one to a fork of the request.
 
-- `models`: shortcut names (`jev`, `d1`, `d1Ultra`, `decider`, `luna`, `clef`, `clefFlash`) or `{ name, attach: jevers => jevers.local({ url }) }` for anything needing options.
+- `models`: shortcut names (`jev`, `d1`, `d1Ultra`, `d10`, `d10Ultra`, `decider`, `deciderFlash`, `decider12`, `luna`, `clef`, `clefFlash`) or `{ name, attach: jevers => jevers.local({ url }) }` for anything needing options.
 - `expected`: `{ question: answer }`. `true`/`false` for `noul`, an option for `choice`, a level for `score`. Not every question needs an expected answer; only listed ones are graded.
 
 Each model runs on its own, sequentially, without fallback. `report` is `{ expected, results }`, one result per model:

@@ -4,7 +4,7 @@ Decision models take some context and a question with fixed options, and return 
 
 Use it where your app makes a call with a known set of outcomes, like routing a support ticket or checking a message before it reaches an LLM. Since you get a distribution and not only a label, you pick the threshold. If a provider is down or rate limited, the next model you attached answers.
 
-Supported: TypeSafe Jev, Liquid d1 and d1-ultra, Perplexity pplx-decider, OpenAI Decisions (`gpt-6-luna`), Cloudflare Clef, the OpenRouter routes for Jev, d1 and pplx-decider, and a local llama-server running d1.
+Supported: TypeSafe Jev, Liquid d1, d1-ultra, d1.2 and d1.2-ultra, Perplexity pplx-decider, OpenAI Decisions (`gpt-6-luna`), Cloudflare Clef, the OpenRouter routes for Jev, d1 and pplx-decider, and a local llama-server running d1.
 
 Zero dependencies. Node 20+.
 
@@ -67,9 +67,13 @@ Fields per answer type:
 | Method | Native route | Input | `mix` routes |
 |---|---|---|---|
 | `.jev()` | TypeSafe `jev-latest` | text, image | `openrouter` |
-| `.d1()` | Liquid `d1` | text, image | `openrouter` |
-| `.d1Ultra()` | Liquid `d1-ultra` | text, image | `openrouter` |
-| `.decider()` | Perplexity `pplx-decider-v1.2` | text, image | `openrouter` |
+| `.d1()` | Liquid `d1.2` | text, image | `openrouter` |
+| `.d1Ultra()` | Liquid `d1.2-ultra` | text, image | `openrouter` |
+| `.d10()` | Liquid `d1` | text, image | `openrouter` |
+| `.d10Ultra()` | Liquid `d1-ultra` | text, image | `openrouter` |
+| `.decider()` | Perplexity `pplx-decider-v1.3` | text, image | `openrouter` |
+| `.deciderFlash()` | Perplexity `pplx-decider-flash-v1.3` | text, image | `openrouter` |
+| `.decider12()` | Perplexity `pplx-decider-v1.2` | text, image | `openrouter` |
 | `.luna()` | OpenAI `gpt-6-luna` | text, image | |
 | `.clef()` | Cloudflare Workers AI `clef` | text, image | |
 | `.clefFlash()` | Cloudflare Workers AI `clef-flash` | text, image | |
@@ -332,39 +336,42 @@ node demo/benchmark.js                          # every model with API keys
 node demo/benchmark.js jev d1 decider --category chess,driving --out report.json
 ```
 
-### Results from 6 November 2026
+### Results from 17 November 2026
 
-One run of the suite (39 scenarios, 40 graded questions) on each model's native route. The full report is in [`demo/results/benchmark-2026-11-06.json`](demo/results/benchmark-2026-11-06.json).
+One run of the suite (39 scenarios, 40 graded questions) on each model's native route. The full report is in [`demo/results/benchmark-2026-11-17.json`](demo/results/benchmark-2026-11-17.json).
 
 | Model | Correct | Mean p(expected) | Answered | Mean latency |
 |---|---|---|---|---|
-| `d1Ultra` | 38/40 (95%) | 0.87 | 39/39 | 400 ms |
-| `decider` | 36/40 (90%) | 0.86 | 39/39 | 407 ms |
-| `jev` | 36/40 (90%) | 0.84 | 39/39 | 230 ms |
-| `luna` | 36/40 (90%) | 0.82 | 39/39 | 416 ms |
-| `d1` | 35/40 (88%) | 0.80 | 39/39 | 326 ms |
+| `d1Ultra` (d1.2-ultra) | 39/40 (98%) | 0.87 | 39/39 | 571 ms |
+| `d10Ultra` (d1-ultra) | 38/40 (95%) | 0.85 | 39/39 | 331 ms |
+| `d1` (d1.2) | 37/40 (93%) | 0.82 | 39/39 | 384 ms |
+| `decider12` (v1.2) | 36/40 (90%) | 0.87 | 39/39 | 350 ms |
+| `luna` | 36/40 (90%) | 0.82 | 39/39 | 408 ms |
+| `d10` (d1) | 36/40 (90%) | 0.81 | 39/39 | 343 ms |
+| `decider` (v1.3) | 35/40 (88%) | 0.85 | 39/39 | 477 ms |
+| `jev` | 35/40 (88%) | 0.84 | 39/39 | 232 ms |
+| `deciderFlash` (flash v1.3) | 33/40 (83%) | 0.79 | 39/39 | 309 ms |
 
 Accuracy by category:
 
-| Category | `d1Ultra` | `decider` | `jev` | `luna` | `d1` |
-|---|---|---|---|---|---|
-| quoridor | 67% | 67% | 33% | 67% | 67% |
-| chess | 75% | 75% | 75% | 50% | 75% |
-| tic-tac-toe | 100% | 33% | 67% | 67% | 100% |
-| driving | 100% | 100% | 100% | 100% | 80% |
-| compaction | 100% | 100% | 100% | 100% | 80% |
-| spam | 100% | 100% | 100% | 100% | 100% |
-| safety | 100% | 100% | 100% | 100% | 83% |
-| categorization | 100% | 100% | 100% | 100% | 100% |
+| Category | `d1Ultra` | `d10Ultra` | `d1` | `decider12` | `luna` | `d10` | `decider` | `jev` | `deciderFlash` |
+|---|---|---|---|---|---|---|---|---|---|
+| quoridor | 100% | 67% | 67% | 67% | 67% | 67% | 67% | 33% | 67% |
+| chess | 100% | 75% | 75% | 75% | 50% | 75% | 50% | 75% | 25% |
+| tic-tac-toe | 67% | 100% | 67% | 33% | 67% | 100% | 33% | 67% | 33% |
+| driving | 100% | 100% | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
+| compaction | 100% | 100% | 100% | 100% | 100% | 80% | 100% | 80% | 100% |
+| spam | 100% | 100% | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
+| safety | 100% | 100% | 100% | 100% | 100% | 83% | 100% | 100% | 100% |
+| categorization | 100% | 100% | 100% | 100% | 100% | 100% | 100% | 100% | 88% |
 
 Notes on the run:
 
-- `d1Ultra` missed only `quoridor-must-block` and the back-rank evaluation, which most models missed too.
-- Every model missed `quoridor-must-block`: with the opponent one step from its goal row, each one picked `move e3` instead of the wall at `d1h` that blocks it.
-- All five found the back-rank mate, but only `decider` called the position `White is winning`; the rest said `equal`.
-- Only `d1` and `d1Ultra` found the fork in `tictactoe-fork`; the other three picked `7`, which makes one threat instead of the two that `1` makes.
-- `decider` (now `pplx-decider-v1.2`) played `Nf3` instead of the scholar's mate `Qxf7#` and missed the block in `tictactoe-block`.
-- `d1` steered right on the left curve again, with 0.25 on `left`. It also called the injection hidden in a pasted email `safe` and kept a tool log with a buried failure instead of summarizing it, both with about 0.5 on the right answer.
+- `d1Ultra` (d1.2-ultra) was the only model to block in `quoridor-must-block`, and with `decider12` the only ones to call the back-rank position `White is winning`. Its one miss was the fork in `tictactoe-fork`.
+- Only `d10` and `d10Ultra` found the fork in `tictactoe-fork`; every other model picked `7` or `9`, which make one threat instead of the two that `1` makes.
+- `decider` (v1.3) scored one question below `decider12` (v1.2): it lost the back-rank evaluation. Both played `Nf3` instead of the scholar's mate `Qxf7#` and missed the block in `tictactoe-block`.
+- `deciderFlash` is the fastest Perplexity model but the weakest overall: 25% on chess, and it called a sarcastic review `negative` instead of `very negative`.
+- `d10` called the injection hidden in a pasted email `safe` and kept a tool log with a buried failure instead of summarizing it, as in earlier runs.
 
 The sample is small: in chess one question moves the score by 25 points, and close calls can flip between runs. Latency was measured from one machine over the public internet.
 
